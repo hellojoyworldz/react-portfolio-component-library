@@ -2,4 +2,4 @@
 dist
 rollup.config.js
 .babelrc
-
+*.idea
