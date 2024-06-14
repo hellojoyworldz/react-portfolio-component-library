@@ -1,0 +1,126 @@
+@import "../../assets/styles/variable.scss";
+
+.mainCate {
+  padding: $lyPadding 0;
+  overflow-x: hidden;
+}
+
+.TitleType1 {
+  margin-bottom: $lyMargin;
+  font-family: $fontThi, $fontFir;
+  font-weight: 600;
+  font-size: $fontSizLv1;
+  line-height: $lineHeiLv3;
+  color: $fontColFir;
+  text-align: center;
+  white-space: break-spaces;
+
+  & .highlight {
+    color: $colPoint4;
+  }
+}
+
+@media (max-width: 860px) {
+  .TitleType1 {
+    margin-bottom: 32px;
+    font-size: 52px;
+  }
+}
+
+.listType1 {
+  display: flex;
+  width: 100vw;
+  max-width: $in;
+  margin: 0 auto;
+
+  & .list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column-gap: $lyGap;
+    white-space: nowrap;
+
+    &__item {
+      position: relative;
+      aspect-ratio: 67 / 100;
+      width: 25vw;
+      min-width: 300px;
+      height: 100%;
+      border-radius: $lyRadius;
+      overflow: hidden;
+      & img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &__icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      & img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &__tit {
+      position: absolute;
+      bottom: 8vw;
+      width: 100%;
+      text-align: center;
+      font-size: 2.5vw;
+      line-height: 1.2em;
+      white-space: break-spaces;
+      z-index: 2;
+    }
+
+    &__thumb {
+      display: block;
+      filter: brightness(0.6);
+      & img {
+        display: block;
+      }
+    }
+
+    &__item:nth-child(5n-4) .list__tit {
+      color: $colPoint1;
+    }
+
+    &__item:nth-child(5n-3) .list__tit {
+      color: $colPoint2;
+    }
+
+    &__item:nth-child(5n-2) .list__tit {
+      color: $colPoint3;
+    }
+
+    &__item:nth-child(5n-1) .list__tit {
+      color: $colPoint4;
+    }
+
+    &__item:nth-child(5n) .list__tit {
+      color: $colPoint5;
+    }
+  }
+}
+
+@media (max-width: 860px) {
+  .listType1 {
+    & .list {
+      grid-column-gap: 16px;
+
+      &__item {
+        width: 300px;
+      }
+
+      &__tit {
+        bottom: 110px;
+        font-size: 32px;
+      }
+    }
+  }
+}

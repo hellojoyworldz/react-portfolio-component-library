@@ -1,0 +1,127 @@
+@import "../../assets/styles/variable.scss";
+
+.mainProfile {
+  position: relative;
+  padding: $lyPadding 0 0 0;
+  &__svg {
+    padding: 1% 0;
+    width: 100vw;
+    height: auto;
+    overflow: visible;
+    z-index: 2;
+
+    & path {
+      stroke: rgba(255, 255, 255, 0.5);
+    }
+    & textPath {
+      position: relative;
+      font-family: $fontSec;
+      font-size: $lineHeiLv1;
+      font-weight: bold;
+      color: $colPoint6;
+      filter: currentColor;
+    }
+  }
+
+  &__thumb {
+    display: block;
+    width: 40vw;
+    max-width: 600px;
+    min-width: 300px;
+    margin: 5vh 5vw 0 auto;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.footer {
+  position: relative;
+  padding: 0 0 $lyPadding 0;
+  // background: linear-gradient(180deg, $colPoint6, $colPoint5);
+  overflow: hidden;
+
+  &__sbj {
+    display: block;
+    font-weight: bold;
+    font-style: italic;
+    font-family: $fontSec;
+    font-size: $titSizSec;
+    line-height: $lineHeiLv3;
+    color: $whiteFff;
+    white-space: nowrap;
+    will-change: transform;
+    animation: moving 30s linear infinite;
+  }
+
+  &__desc {
+    font-size: $fontSizLv5;
+    color: #fff;
+  }
+
+  &__info {
+    margin: 5vh 5vw 192px 5vw;
+    & .list {
+      &__item {
+        margin: 16px 0;
+        font-family: $fontSec;
+        font-size: $fontSizLv5;
+        line-height: $lineHei100;
+        color: $whiteFff;
+      }
+
+      &__tit {
+        margin-right: 52px;
+      }
+    }
+  }
+}
+
+@keyframes moving {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 1440px) {
+  .mainProfile {
+    padding: 96px 0 0 0;
+
+    &__svg {
+      width: 150%;
+    }
+  }
+
+  .footer {
+    padding: 48px 0;
+    box-sizing: border-box;
+
+    &__sbj {
+      font-size: 48px;
+      line-height: 64px;
+    }
+    &__desc {
+      font-size: 18px;
+    }
+
+    &__info {
+      margin: 16px 24px 96px;
+
+      & .list {
+        &__tit {
+          display: block;
+          margin-right: 0;
+        }
+        &__item {
+          margin: 8px;
+          font-size: 16px;
+          line-height: 1em;
+        }
+      }
+    }
+  }
+}
