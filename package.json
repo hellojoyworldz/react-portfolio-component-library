@@ -1,13 +1,16 @@
 {
   "name": "react-portfolio-component-library",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "react-portfolio-component",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "scripts": {
     "build": "rollup -c"
   },
-  "keywords": ["portfolio","react"],
+  "keywords": [
+    "portfolio",
+    "react"
+  ],
   "author": "sa",
   "license": "ISC",
   "devDependencies": {
