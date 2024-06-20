@@ -9,3 +9,4 @@ export { ListHorizontal } from "./Components/ListHorizontal/ListHorizontal.jsx";
 export { ListNormal } from "./Components/ListNormal/ListNormal.jsx";
 export { ListCard } from "./Components/ListCard/ListCard.jsx";
 export { ListLego } from "./Components/ListLego/ListLego.jsx";
+export { GoToLink } from "./Components/GoToLink.jsx"

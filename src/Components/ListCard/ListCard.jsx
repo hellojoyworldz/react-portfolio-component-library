@@ -1,4 +1,5 @@
 import React from "react";
+import { GoToLink } from "../GoToLink.jsx";
 import "./ListCard.style.scss";
 import { IMG_PATH } from "../../constants/path";
 
@@ -39,13 +40,8 @@ export const ListCard = ({
             {items.map((item) => (
               <li className="list__item" key={item.id}>
                 {item.site ? (
-                  <a
-                    className="list__link"
-                    target="_blank"
-                    href={item.site}
-                  ></a>
+                  <GoToLink to={item.site} className="list__link" />
                 ) : null}
-
                 {item.thumb ? (
                   <div className="list__thumb">
                     <span

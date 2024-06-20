@@ -1,10 +1,11 @@
 import React from "react";
+import { GoToLink } from "../GoToLink.jsx";
 import "./ListLego.style.scss";
 import { IMG_PATH } from "../../constants/path";
 
 const sbjdata = {
   sbj: "Hello",
-  hightlight: "My Portfolio",
+  highlight: "My Portfolio",
 };
 
 const data = [
@@ -64,11 +65,11 @@ export const ListLego = ({
         <h2 className="titleType5">
           {title.sbj ? title.sbj : null}
 
-          {title.hightlight ? (
+          {title.highlight ? (
             <>
               <br />
               <span className="highlight">
-                {title.hightlight}
+                {title.highlight}
                 <img src={`${IMG_PATH}/icon__tit03.png`} alt="" />
               </span>
             </>
@@ -82,11 +83,7 @@ export const ListLego = ({
             {items.map((item) => (
               <li className={`list__item item${item.id}`} key={item.id}>
                 {item.site && (
-                  <a
-                    href={item.site}
-                    target="_blank"
-                    className="list__link"
-                  ></a>
+                  <GoToLink to={item.site} className="list__link"></GoToLink>
                 )}
                 {item.title && (
                   <strong className="list__tit">{item.title}</strong>

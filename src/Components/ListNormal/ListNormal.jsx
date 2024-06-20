@@ -1,4 +1,5 @@
 import React from "react";
+import { GoToLink } from "../GoToLink.jsx";
 import "./ListNormal.style.scss";
 import { IMG_PATH } from "../../constants/path";
 
@@ -63,22 +64,14 @@ export const ListNormal = ({
                   ) : null}
                   <div className="list__type">
                     {item.github ? (
-                      <a
-                        href={item.github}
-                        target="_blank"
-                        className="list__typeLink"
-                      >
+                      <GoToLink to={item.github} className="list__typeLink">
                         Github
-                      </a>
+                      </GoToLink>
                     ) : null}
                     {item.site ? (
-                      <a
-                        href={item.site}
-                        target="_blank"
-                        className="list__typeLink"
-                      >
+                      <GoToLink to={item.site} className="list__typeLink">
                         Site
-                      </a>
+                      </GoToLink>
                     ) : null}
                   </div>
                 </div>

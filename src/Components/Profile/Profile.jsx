@@ -1,4 +1,5 @@
 import React from "react";
+import { GoToLink } from "../GoToLink.jsx";
 import "./Profile.style.scss";
 
 const profileData = {
@@ -79,7 +80,7 @@ export const Profile = ({
               {data.info.email && (
                 <li className="list__item">
                   <strong className="list__tit">E-mail</strong>
-                  <a href={data.info.email}>{data.info.email}</a>
+                  <a href={`mailto:${data.info.email}`}>{data.info.email}</a>
                 </li>
               )}
               {data.info.phone && (
@@ -91,23 +92,21 @@ export const Profile = ({
               {data.info.portfolio && (
                 <li className="list__item">
                   <strong className="list__tit">Portfolio</strong>
-                  <a href={data.info.portfolio}>{data.info.portfolio}</a>
+                  <GoToLink to={data.info.portfolio}>
+                    {data.info.portfolio}
+                  </GoToLink>
                 </li>
               )}
               {data.info.github ? (
                 <li className="list__item">
                   <strong className="list__tit">Git-Hub</strong>
-                  <a href={data.info.github} target="_blank">
-                    {data.info.github}
-                  </a>
+                  <GoToLink to={data.info.github}>{data.info.github}</GoToLink>
                 </li>
               ) : null}
               {data.info.blog ? (
                 <li className="list__item">
                   <strong className="list__tit">Blog</strong>
-                  <a href={data.info.blog} target="_blank">
-                    {data.info.blog}
-                  </a>
+                  <GoToLink to={data.info.blog}>{data.info.blog}</GoToLink>
                 </li>
               ) : null}
             </ul>

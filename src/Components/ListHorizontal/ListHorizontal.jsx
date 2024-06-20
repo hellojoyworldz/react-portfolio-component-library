@@ -1,4 +1,5 @@
 import React from "react";
+import { GoToLink } from "../GoToLink.jsx";
 import "./ListHorizontal.style.scss";
 import { IMG_PATH } from "../../constants/path";
 
@@ -91,9 +92,9 @@ export const ListHorizontal = ({
                 {item.thumb ? (
                   <span className="list__thumb">
                     {item.site ? (
-                      <a href={item.site} target="_blank">
+                      <GoToLink to={item.site}>
                         <img className="list__img" src={item.thumb} alt="" />
-                      </a>
+                      </GoToLink>
                     ) : (
                       <img className="list__img" src={item.thumb} alt="" />
                     )}
