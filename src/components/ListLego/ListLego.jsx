@@ -60,7 +60,7 @@ export const ListLego = ({
   items = data,
 }) => {
   return (
-    <section className={styles["mainCode"]} data-bgcolor={bgcolor}>
+    <section className={styles["listLego"]} data-bgcolor={bgcolor}>
       {title ? (
         <h2 className={styles["titleType5"]}>
           {title.sbj ? title.sbj : null}

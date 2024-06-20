@@ -13,6 +13,7 @@ const data = [
     github: "/",
     site: "/",
     thumb: `${IMG_PATH}/mainReact__img01.jpg`,
+    speed: 4,
   },
   {
     id: "02",
@@ -21,6 +22,7 @@ const data = [
     title: "Vue",
     github: "/",
     thumb: `${IMG_PATH}/mainReact__img02.jpg`,
+    speed: 1,
   },
   {
     id: "03",
@@ -29,6 +31,7 @@ const data = [
     title: "php",
     site: "/",
     thumb: `${IMG_PATH}/mainReact__img03.jpg`,
+    speed: 2,
   },
 ];
 export const ListNormal = ({
@@ -37,7 +40,7 @@ export const ListNormal = ({
   items = data,
 }) => {
   return (
-    <section className={styles["mainFront"]} data-bgcolor={bgcolor}>
+    <section className={styles["listNormal"]} data-bgcolor={bgcolor}>
       {title ? <h2 className={styles["titleType2"]}>{title}</h2> : null}
       {items ? (
         <div className={styles["listType2"]}>
@@ -47,7 +50,7 @@ export const ListNormal = ({
                 key={item.id}
                 className={styles["list__item"]}
                 data-scroll
-                data-scroll-speed="3"
+                data-scroll-speed={item.speed}
                 ata-scroll-direction="vertical"
               >
                 <div className={styles["list__info"]}>

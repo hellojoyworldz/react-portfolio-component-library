@@ -48,12 +48,12 @@ export const Intro = ({
   items = data,
 }) => {
   return (
-    <section className={styles["mainCate"]} data-bgcolor={bgcolor}>
+    <section className={styles["mainIntro"]} data-bgcolor={bgcolor}>
       {title ? (
         <h2 className={styles["TitleType1"]}>
           {title.sbj}
           {title.highlight && (
-            <span className="highlight">{title.highlight}</span>
+            <span className={styles["highlight"]}>{title.highlight}</span>
           )}
         </h2>
       ) : null}

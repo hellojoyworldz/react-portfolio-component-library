@@ -1,12 +1,12 @@
 @import "../../assets/styles/variable.scss";
 
-.mainCode {
+.listLego {
   margin: $lyMargin 0;
   padding: $lyPadding $lyMargin;
 }
 
 @media (max-width: 1440px) {
-  .mainCode {
+  .listLego {
     padding: 48px 16px;
   }
 }

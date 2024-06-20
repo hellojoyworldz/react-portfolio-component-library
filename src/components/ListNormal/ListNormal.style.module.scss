@@ -1,11 +1,11 @@
 @import "../../assets/styles/variable.scss";
 
-.mainFront {
+.listNormal {
   padding: $lyMargin $lyPadding;
 }
 
 @media (max-width: 1440px) {
-  .mainFront {
+  .listNormal {
     padding: 48px 16px;
   }
 }

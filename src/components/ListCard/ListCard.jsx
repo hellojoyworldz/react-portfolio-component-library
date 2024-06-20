@@ -24,7 +24,7 @@ export const ListCard = ({
   items = data,
 }) => {
   return (
-    <section className={styles["mainCss"]} data-bgcolor={bgcolor}>
+    <section className={styles["listCard"]} data-bgcolor={bgcolor}>
       {title ? (
         <h2 className={styles["titleType4"]}>
           {title.sbj}

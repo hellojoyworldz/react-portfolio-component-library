@@ -1,12 +1,12 @@
 @import "../../assets/styles/variable.scss";
 
-.mainCss {
+.listCard {
   margin: $lyMargin 0;
   padding: $lyPadding $lyMargin;
 }
 
 @media (max-width: 1440px) {
-  .mainCss {
+  .listCard {
     padding: 48px 16px;
     width: auto;
   }
