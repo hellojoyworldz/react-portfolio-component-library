@@ -4,7 +4,7 @@ import gsap from "gsap";
 import locomotiveScroll from "locomotive-scroll";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
-export const MainGroup = ({ children }) => {
+export const MainGroup = ({ children, className }) => {
   const scrollRef = useRef(null);
 
   useEffect(() => {
@@ -99,7 +99,7 @@ export const MainGroup = ({ children }) => {
     };
   }, []);
   return (
-    <div id="contents" ref={scrollRef}>
+    <div id="contents" ref={scrollRef} className={className || ""}>
       <main className="main">{children}</main>
     </div>
   );

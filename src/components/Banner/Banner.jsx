@@ -2,9 +2,12 @@ import React from "react";
 import styles from "./Banner.style.module.scss";
 import { IMG_PATH } from "../../constants/path";
 
-export const Banner = ({ bgcolor = "#fde445" }) => {
+export const Banner = ({ bgcolor = "#fde445", className }) => {
   return (
-    <section className={styles["mainBanner"]} data-bgcolor={bgcolor}>
+    <section
+      className={`${styles["mainBanner"]} ${className || ""}`}
+      data-bgcolor={bgcolor}
+    >
       <div className={styles["mainBanner__bg"]}>
         <img src={`${IMG_PATH}/mainBanner__bg.png`} alt="" />
       </div>

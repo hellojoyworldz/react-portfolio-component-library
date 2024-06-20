@@ -22,9 +22,13 @@ export const ListCard = ({
   bgcolor = "#f5f5f5",
   title = sbjdata,
   items = data,
+  className,
 }) => {
   return (
-    <section className={styles["listCard"]} data-bgcolor={bgcolor}>
+    <section
+      className={`${styles["listCard"]} ${className || ""}`}
+      data-bgcolor={bgcolor}
+    >
       {title ? (
         <h2 className={styles["titleType4"]}>
           {title.sbj}

@@ -6,9 +6,12 @@ const sbjdata = {
   highlight: "HELLO, WORLD!",
   subtitle: "WELCOME MY PORTFOLIO",
 };
-export const Visual = ({ bgcolor = "#fff", sbj = sbjdata }) => {
+export const Visual = ({ bgcolor = "#fff", sbj = sbjdata, className }) => {
   return (
-    <section className={styles["visual"]} data-bgcolor={bgcolor}>
+    <section
+      className={`${styles["visual"]} ${className || ""}`}
+      data-bgcolor={bgcolor}
+    >
       <div className={styles["visual__tit"]}>
         <h2>{sbj.title}</h2>
         <span className={styles["visual__tit--move"]}>{sbj.highlight}</span>

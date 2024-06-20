@@ -58,9 +58,13 @@ export const ListLego = ({
   bgcolor = "#f6f3ff",
   title = sbjdata,
   items = data,
+  className,
 }) => {
   return (
-    <section className={styles["listLego"]} data-bgcolor={bgcolor}>
+    <section
+      className={`${styles["listLego"]} ${className || ""}`}
+      data-bgcolor={bgcolor}
+    >
       {title ? (
         <h2 className={styles["titleType5"]}>
           {title.sbj ? title.sbj : null}

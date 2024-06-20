@@ -38,9 +38,13 @@ export const ListNormal = ({
   bgcolor = "#c2aeec",
   title = sbj,
   items = data,
+  className,
 }) => {
   return (
-    <section className={styles["listNormal"]} data-bgcolor={bgcolor}>
+    <section
+      className={`${styles["listNormal"]} ${className || ""}`}
+      data-bgcolor={bgcolor}
+    >
       {title ? <h2 className={styles["titleType2"]}>{title}</h2> : null}
       {items ? (
         <div className={styles["listType2"]}>

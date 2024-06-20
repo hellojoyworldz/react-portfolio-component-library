@@ -46,9 +46,13 @@ export const Intro = ({
   bgcolor = "#f5feff",
   title = sbjdata,
   items = data,
+  className,
 }) => {
   return (
-    <section className={styles["mainIntro"]} data-bgcolor={bgcolor}>
+    <section
+      className={`${styles["mainIntro"]} ${className || ""}`}
+      data-bgcolor={bgcolor}
+    >
       {title ? (
         <h2 className={styles["TitleType1"]}>
           {title.sbj}

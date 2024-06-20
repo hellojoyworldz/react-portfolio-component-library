@@ -16,10 +16,14 @@ export const Profile = ({
   bgcolor = "#ff7896",
   bggradient = "#f06b67",
   data = profileData,
+  className,
 }) => {
   return (
     <>
-      <section className={styles["mainProfile"]} data-bgcolor={bgcolor}>
+      <section
+        className={`${styles["mainProfile"]} ${className || ""}`}
+        data-bgcolor={bgcolor}
+      >
         <svg
           className={styles["mainProfile__svg"]}
           width="1440"

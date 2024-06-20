@@ -26,10 +26,11 @@ export const ListHorizontal = ({
   bgcolor = "#310591",
   title = sbj,
   items = data,
+  className,
 }) => {
   return (
     <div
-      className={`${styles["listType3"]} ${styles["horizontal-scroll"]}`}
+      className={`${styles["listType3"]} ${styles["horizontal-scroll"]} ${className || ""}`}
       data-bgcolor={bgcolor}
       data-horizontal-scroll
     >
