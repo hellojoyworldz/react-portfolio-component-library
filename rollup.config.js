@@ -20,7 +20,13 @@ export default {
       sourcemap: true,
     },
   ],
-  external: ["react", "react-dom", "gsap", "locomotive-scroll"], // 외부 모듈로 지정
+  external: [
+    "react",
+    "react-dom",
+    "react-router-dom",
+    "gsap",
+    "locomotive-scroll",
+  ], // 외부 모듈로 지정
   plugins: [
     nodeResolve(),
     commonjs(),
