@@ -4,7 +4,7 @@ import styles from "./ListLego.style.module.scss";
 import { IMG_PATH } from "../../constants/path";
 
 const sbjdata = {
-  sbj: "Hello",
+  main: "Hello",
   highlight: "My Portfolio",
 };
 
@@ -15,6 +15,7 @@ const data = [
     type: "JavaScript",
     site: "/",
     thumb: `${IMG_PATH}/mainCode__img01.jpg`,
+    alt: "title",
   },
   {
     id: "02",
@@ -63,12 +64,10 @@ export const ListLego = ({
   return (
     <section
       className={`${styles["listLego"]} ${className || ""}`}
-      data-bgcolor={bgcolor}
-    >
+      data-bgcolor={bgcolor}>
       {title ? (
         <h2 className={styles["titleType5"]}>
-          {title.sbj ? title.sbj : null}
-
+          {title.main ? title.main : null}
           {title.highlight ? (
             <>
               <br />
@@ -86,14 +85,14 @@ export const ListLego = ({
           <ul className={styles["list"]}>
             {items.map((item) => (
               <li
-                className={`${styles["list__item"]} ${styles[`item${item.id}`]}`}
-                key={item.id}
-              >
+                className={`${styles["list__item"]} ${
+                  styles[`item${item.id}`]
+                }`}
+                key={item.id}>
                 {item.site && (
                   <GoToLink
                     to={item.site}
-                    className={styles["list__link"]}
-                  ></GoToLink>
+                    className={styles["list__link"]}></GoToLink>
                 )}
                 {item.title && (
                   <strong className={styles["list__tit"]}>{item.title}</strong>

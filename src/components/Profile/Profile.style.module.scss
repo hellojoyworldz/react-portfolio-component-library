@@ -15,7 +15,7 @@
     }
     & textPath {
       position: relative;
-      font-family: $fontSec;
+      font-family: $fontSec, $fontFir;
       font-size: $lineHeiLv1;
       font-weight: bold;
       color: $colPoint6;
@@ -46,7 +46,7 @@
     display: block;
     font-weight: bold;
     font-style: italic;
-    font-family: $fontSec;
+    font-family: $fontSec, $fontFir;
     font-size: $titSizSec;
     line-height: $lineHeiLv3;
     color: $whiteFff;
@@ -65,7 +65,7 @@
     & .list {
       &__item {
         margin: 16px 0;
-        font-family: $fontSec;
+        font-family: $fontSec, $fontFir;
         font-size: $fontSizLv5;
         line-height: $lineHei100;
         color: $whiteFff;

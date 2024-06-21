@@ -1,5 +1,5 @@
 export { PortfolioGroup } from "./components/PortfolioGroup.jsx";
-export { MainGroup } from "./components/MainGroup.jsx";
+export { PortfolioContent } from "./components/PortfolioContent.jsx";
 export { Header } from "./components/Header/Header.jsx";
 export { Intro } from "./components/Intro/Intro.jsx";
 export { Visual } from "./components/Visual/Visual.jsx";

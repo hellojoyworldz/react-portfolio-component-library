@@ -43,8 +43,7 @@ export const ListNormal = ({
   return (
     <section
       className={`${styles["listNormal"]} ${className || ""}`}
-      data-bgcolor={bgcolor}
-    >
+      data-bgcolor={bgcolor}>
       {title ? <h2 className={styles["titleType2"]}>{title}</h2> : null}
       {items ? (
         <div className={styles["listType2"]}>
@@ -54,14 +53,14 @@ export const ListNormal = ({
                 key={item.id}
                 className={styles["list__item"]}
                 data-scroll
-                data-scroll-speed={item.speed}
-                ata-scroll-direction="vertical"
-              >
+                data-scroll-speed={item.speed || 2}
+                ata-scroll-direction="vertical">
                 <div className={styles["list__info"]}>
                   {item.type ? (
                     <span
-                      className={`${styles[`cate--${item.type}`]} ${styles["list__cate"]} cate--${item.type}`}
-                    >
+                      className={`${styles[`cate--${item.type}`]} ${
+                        styles["list__cate"]
+                      } cate--${item.type}`}>
                       {item.type}
                     </span>
                   ) : null}
@@ -77,16 +76,14 @@ export const ListNormal = ({
                     {item.github ? (
                       <GoToLink
                         to={item.github}
-                        className={styles["list__typeLink"]}
-                      >
+                        className={styles["list__typeLink"]}>
                         Github
                       </GoToLink>
                     ) : null}
                     {item.site ? (
                       <GoToLink
                         to={item.site}
-                        className={styles["list__typeLink"]}
-                      >
+                        className={styles["list__typeLink"]}>
                         Site
                       </GoToLink>
                     ) : null}
@@ -94,7 +91,11 @@ export const ListNormal = ({
                 </div>
                 {item.thumb ? (
                   <div className={styles["list__thumb"]}>
-                    <img data-speed="auto" src={item.thumb} alt="" />
+                    <img
+                      data-speed="auto"
+                      src={item.thumb}
+                      alt={item.alt ? item.alt : item.title ? item.title : ""}
+                    />
                   </div>
                 ) : null}
               </li>

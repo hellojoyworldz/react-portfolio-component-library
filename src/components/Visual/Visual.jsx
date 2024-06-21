@@ -2,19 +2,19 @@ import React from "react";
 import styles from "./Visual.style.module.scss";
 import { IMG_PATH } from "../../constants/path";
 const sbjdata = {
-  title: "MY\nPORTFOLIO",
-  highlight: "HELLO, WORLD!",
-  subtitle: "WELCOME MY PORTFOLIO",
+  main: "MY\nPORTFOLIO",
+  badge: "HELLO, WORLD!",
+  move: "WELCOME MY PORTFOLIO",
 };
-export const Visual = ({ bgcolor = "#fff", sbj = sbjdata, className }) => {
+export const Visual = ({ bgcolor = "#fff", title = sbjdata, className }) => {
   return (
     <section
       className={`${styles["visual"]} ${className || ""}`}
       data-bgcolor={bgcolor}
     >
       <div className={styles["visual__tit"]}>
-        <h2>{sbj.title}</h2>
-        <span className={styles["visual__tit--move"]}>{sbj.highlight}</span>
+        <h2>{title.main}</h2>
+        <span className={styles["visual__tit--move"]}>{title.badge}</span>
       </div>
 
       <div className={styles["visual__sbj"]}>
@@ -24,10 +24,10 @@ export const Visual = ({ bgcolor = "#fff", sbj = sbjdata, className }) => {
           data-scroll-speed="3"
           data-scroll-direction="horizontal"
         >
-          <span>{sbj.subtitle}</span>
-          <span>{sbj.subtitle}</span>
-          <span>{sbj.subtitle}</span>
-          <span>{sbj.subtitle}</span>
+          <span>{title.move}</span>
+          <span>{title.move}</span>
+          <span>{title.move}</span>
+          <span>{title.move}</span>
         </div>
       </div>
 

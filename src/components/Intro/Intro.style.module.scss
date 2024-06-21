@@ -54,19 +54,6 @@
       }
     }
 
-    &__icon {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      & img {
-        width: 100%;
-        height: auto;
-      }
-    }
-
     &__tit {
       position: absolute;
       bottom: 8vw;
@@ -78,32 +65,94 @@
       z-index: 2;
     }
 
+    &__icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-position: 50% 50%;
+      background-size: cover;
+      z-index: 1;
+    }
+
     &__thumb {
       display: block;
+      width: 100%;
+      height: 100%;
       filter: brightness(0.6);
-      & img {
-        display: block;
+      background-position: 50% 50%;
+      background-size: cover;
+    }
+
+    &__item:nth-child(5n-4) {
+      .list__tit {
+        color: $colPoint1;
+      }
+
+      .list__icon {
+        background-image: url($IMG_PATH + "/mainCate__itemIcon01.png");
+      }
+
+      .list__thumb {
+        background-image: url($IMG_PATH + "/mainCate__itemBg01.jpg");
       }
     }
 
-    &__item:nth-child(5n-4) .list__tit {
-      color: $colPoint1;
+    &__item:nth-child(5n-3) {
+      .list__tit {
+        color: $colPoint2;
+      }
+
+      .list__icon {
+        background-image: url($IMG_PATH + "/mainCate__itemIcon02.png");
+      }
+
+      .list__thumb {
+        background-image: url($IMG_PATH + "/mainCate__itemBg02.jpg");
+      }
     }
 
-    &__item:nth-child(5n-3) .list__tit {
-      color: $colPoint2;
+    &__item:nth-child(5n-2) {
+      .list__tit {
+        color: $colPoint3;
+      }
+
+      .list__icon {
+        background-image: url($IMG_PATH + "/mainCate__itemIcon03.png");
+      }
+
+      .list__thumb {
+        background-image: url($IMG_PATH + "/mainCate__itemBg03.jpg");
+      }
     }
 
-    &__item:nth-child(5n-2) .list__tit {
-      color: $colPoint3;
+    &__item:nth-child(5n-1) {
+      .list__tit {
+        color: $colPoint4;
+      }
+
+      .list__icon {
+        background-image: url($IMG_PATH + "/mainCate__itemIcon04.png");
+      }
+
+      .list__thumb {
+        background-image: url($IMG_PATH + "/mainCate__itemBg04.jpg");
+      }
     }
 
-    &__item:nth-child(5n-1) .list__tit {
-      color: $colPoint4;
-    }
+    &__item:nth-child(5n) {
+      .list__tit {
+        color: $colPoint5;
+      }
 
-    &__item:nth-child(5n) .list__tit {
-      color: $colPoint5;
+      .list__icon {
+        background-image: url($IMG_PATH + "/mainCate__itemIcon05.png");
+      }
+
+      .list__thumb {
+        background-image: url($IMG_PATH + "/mainCate__itemBg05.jpg");
+      }
     }
   }
 }

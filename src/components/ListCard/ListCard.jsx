@@ -4,7 +4,7 @@ import styles from "./ListCard.style.module.scss";
 import { IMG_PATH } from "../../constants/path";
 
 const sbjdata = {
-  sbj: "Hello,",
+  main: "Hello,",
   highlight: "My Portfolio",
 };
 
@@ -31,7 +31,7 @@ export const ListCard = ({
     >
       {title ? (
         <h2 className={styles["titleType4"]}>
-          {title.sbj}
+          {title.main}
           <img src={`${IMG_PATH}/icon__tit02.png`} alt="" />
           <br />
           <span className={styles["highlight"]}>{title.highlight}</span>
