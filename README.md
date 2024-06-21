@@ -427,10 +427,7 @@ gsap와 locomotive가 정의되어 있습니다.
     textpath: "Welcome My Portfolio Site · Hello My World · ",
     footersbj: "IMPOSSIBLE IS NOTING · ",
     notice: "더 좋은 결과를 위해 수정중에 있습니다",
-    photo: {
-      thumb: IMG_PATH,
-      alt : "증명사진",
-    }
+    photo: IMG_PATH,
     info: {
       name: "My Portfolio",
       email: "username@example.com",
@@ -454,20 +451,14 @@ gsap와 locomotive가 정의되어 있습니다.
 
 #### `data` 객체
 
-| 이름        | 설명                       | 타입     | 기타 |
-| :---------- | :------------------------- | :------- | :--- |
+| 이름        | 설명                       | 타입       | 기타 |
+| :---------- | :------------------------- |:---------| :--- |
 | `textpath`  | 물결모양의 움직이는 텍스트 | `String` |      |
 | `footersbj` | 하단에 흘러가는 텍스트     | `String` |      |
 | `notice`    | 공지사항                   | `String` |      |
-| `photo`     | 이미지                     | `Object` |      |
+| `photo`     | 이미지                     | `String` |      |
 | `info`      | 정보                       | `Object` |      |
 
-#### `photo` 객체
-
-| 이름    | 설명               | 타입     | 기타 |
-| :------ | :----------------- | :------- | :--- |
-| `thumb` | 이미지             | `String` |      |
-| `alt`   | 이미지 대체 텍스트 | `String` |      |
 
 #### `info` 객체
 
