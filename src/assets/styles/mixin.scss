@@ -1,0 +1,61 @@
+@import "./function.scss";
+
+@mixin apply-design-attribute($dataset, $property){
+  @each $key, $value in design-get($property) {
+    &[data-#{$dataset}="#{$key}"] {
+      @if $property == 'fontSize' {
+        #{$dataset}: font-size($key, default);
+        @media (max-width: $breakPoint) {
+          #{$dataset}: font-size($key, breakpoint);
+        }
+      } @else {
+        #{$dataset}: $value;
+      }
+    }
+  }
+}
+
+@mixin design-styles {
+  @include apply-design-attribute('font-family', 'fontFamily');
+  @include apply-design-attribute('font-weight', 'fontWeight');
+  @include apply-design-attribute('font-size', 'fontSize');
+  @include apply-design-attribute('font-style', 'fontStyle');
+  @include apply-design-attribute('line-height', 'lineHeight');
+  @include apply-design-attribute('letter-spacing', 'letterSpacing');
+  @include apply-design-attribute('text-decoration', 'textDecoration');
+  @include apply-design-attribute('text-transform', 'textTransform');
+  @include apply-design-attribute('text-align', 'textAlign');
+  @include apply-design-attribute('white-space', 'whiteSpace');
+  @include apply-design-attribute('color', 'colors');
+  @include apply-design-attribute('background-color', 'colors');
+  @include apply-design-attribute('border-color', 'colors');
+  @include apply-design-attribute('opacity', 'opacities');
+}
+
+@mixin design-highlight-styles{
+  @each $key, $value in design-get(colors) {
+    &[data-highlightcolor="#{$key}"] {
+      & .highlight{
+        color: #{$value};
+      }
+    }
+  }
+}
+
+@mixin design-hover-styles{
+  @each $key, $value in design-get(colors) {
+    &[data-hoverbadgecolor="#{$key}"] {
+      &:hover{
+        background-color: #{$value};
+      }
+    }
+  }
+
+  @each $key, $value in design-get(colors) {
+    &[data-hovercolor="#{$key}"] {
+      &:hover{
+        color :#{$value};
+      }
+    }
+  }
+}

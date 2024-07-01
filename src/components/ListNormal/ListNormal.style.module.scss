@@ -1,29 +1,22 @@
 @import "../../assets/styles/variable.scss";
 
+// layout
 .listNormal {
-  padding: $lyMargin $lyPadding;
+  padding: $lyMargin;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: $in) {
   .listNormal {
     padding: 48px 16px;
   }
 }
 
+// title
 .titleType2 {
   margin-bottom: $lyMargin;
-  font-family: $font__third, $fontFir;
-  font-size: $titSizFir;
-  color: #310591;
-  white-space: break-spaces;
 }
 
-@media (max-width: 860px) {
-  .titleType2 {
-    font-size: 48px;
-  }
-}
-
+// list
 .listType2 {
   & .list {
     &__item {
@@ -71,10 +64,6 @@
       position: relative;
       display: block;
       margin-bottom: 8px;
-      font-family: $font__second, $fontFir;
-      font-size: $txtSizeLv4;
-      font-weight: 500;
-      color: $fontColSec;
 
       &::before {
         content: "";
@@ -106,33 +95,13 @@
     &__tit {
       display: block;
       margin-bottom: 24px;
-      font-family: $font__second, $fontFir;
-      font-size: $txtSizeLv1;
-      line-height: $lineHeiLv0;
-      color: $fontColFir;
-      white-space: break-spaces;
-    }
-
-    &__desc {
-      font-size: $txtSizeLv4;
-      color: $fontColSec;
     }
 
     &__type {
-      margin-top: 48px;
-      margin-left: -4px;
-      font-size: 0px;
-      &Link {
-        display: inline-block;
-        vertical-align: middle;
+      margin:52px -4px -4px -4px;
+
+      &Link{
         margin: 4px;
-        padding: 12px 24px;
-        font-family: $font__second, $fontFir;
-        font-size: $txtSizeLv4;
-        line-height: $lineHeiLv0;
-        background-color: $whiteFff;
-        border: 1px solid #ddd;
-        border-radius: 36px;
       }
     }
   }
@@ -146,14 +115,9 @@
       }
     }
   }
-
-  & .list__typeLink:hover {
-    color: #fff;
-    background-color: #310591;
-  }
 }
 
-@media (max-width: 1440px) {
+@media (max-width: $in) {
   .listType2 {
     & .list {
       &__item {
@@ -163,7 +127,7 @@
   }
 }
 
-@media (max-width: 860px) {
+@media (max-width: $breakPoint) {
   .listType2 {
     & .list {
       &__item {
@@ -174,24 +138,6 @@
       &__info {
         padding: 24px;
         width: auto;
-      }
-
-      &__cate {
-        font-size: 16px;
-      }
-
-      &__tit {
-        font-size: 24px;
-      }
-
-      &__desc {
-        font-size: 16px;
-      }
-
-      &__type {
-        &Link {
-          font-size: 14px;
-        }
       }
 
       &__thumb {

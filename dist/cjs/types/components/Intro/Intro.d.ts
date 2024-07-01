@@ -1,8 +1,11 @@
 import React from "react";
-import { Title, Item } from "./data";
-export declare const Intro: ({ bgcolor, title, items, className, }: {
+import { TitleType, ItemType } from "./data";
+import { designTitleType } from "../../constants/types";
+export declare const Intro: ({ bgcolor, title, items, className, titleDesign, itemTitleDesign, }: {
     bgcolor?: string;
-    title?: Title;
-    items?: Item[];
+    title?: TitleType;
+    items?: ItemType[];
     className?: string;
+    titleDesign?: designTitleType;
+    itemTitleDesign?: designTitleType;
 }) => React.JSX.Element;

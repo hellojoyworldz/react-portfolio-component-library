@@ -1,5 +1,7 @@
 import React, { ReactNode } from "react";
 import styles from "./Header.style.module.scss";
+import { ComponentTitle } from "../ComponentTitle/ComponentTitle";
+import { designTitleType } from "../../constants/types";
 
 export const Header = ({
   title,
@@ -7,12 +9,14 @@ export const Header = ({
   alt = "logo",
   className,
   children,
+  titleDesign,
 }: {
   title?: string;
   logo?: string;
   alt?: string;
   className?: string;
   children?: ReactNode;
+  titleDesign?: designTitleType;
 }) => {
   return (
     <>
@@ -23,7 +27,17 @@ export const Header = ({
         {children ? (
           children
         ) : (
-          <h1 className={styles["headerLogo"]}>
+          <ComponentTitle
+            as={"h1"}
+            className={styles["headerLogo"]}
+            design={{
+              fontFamily: "montserrat",
+              fontSize: "sm",
+              textAlign: "left",
+              lineHeight: "tight",
+              ...titleDesign,
+            }}
+          >
             <div className={styles["headerLogo__link"]}>
               <span className={styles["headerLogo__icon"]}>
                 {logo ? (
@@ -36,7 +50,7 @@ export const Header = ({
                 <span className={styles["headerLogo__text"]}>{title}</span>
               ) : null}
             </div>
-          </h1>
+          </ComponentTitle>
         )}
       </header>
     </>

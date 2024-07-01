@@ -7,20 +7,43 @@ import {
   ProfileData,
   profileData,
 } from "./data";
+import { designTitleType, designTextType } from "../../constants/types";
+import { ComponentText } from "../ComponentText/ComponentText";
 
+const repeatText = (text: string, times: number) => text.repeat(times);
+const getInfoContent = (key: string, value: string) => {
+  switch (key) {
+    case "email":
+      return <a href={`mailto:${value}`}>{value}</a>;
+    case "phone":
+      return <a href={`SMS:${value}`}>{value}</a>;
+    case "portfolio":
+    case "github":
+    case "blog":
+      return <GoToLink to={value}>{value}</GoToLink>;
+    default:
+      return value;
+  }
+};
 export const Profile = ({
   bgcolor = "#ff7896",
   bggradient = "#f06b67",
   data = profileData,
   className,
+  noticeDesign,
+  footersbjDesign,
+  infoTitleDesign,
+  infoDescDesign,
 }: {
   bgcolor?: string;
   bggradient?: string;
   data?: Partial<ProfileData>;
   className?: string;
+  noticeDesign?: designTextType;
+  footersbjDesign?: designTextType;
+  infoTitleDesign?: designTextType;
+  infoDescDesign?: designTextType;
 }) => {
-  const repeatText = (text: string, times: number) => text.repeat(times);
-
   const repeatedTextPath = data.textpath
     ? repeatText(data.textpath, 10)
     : repeatText(defaultTextPath, 10);
@@ -86,56 +109,69 @@ export const Profile = ({
           <h2 className="screenHide">CONTACT ME</h2>
           <address className={styles["footer__info"]}>
             {data.notice ? (
-              <div className={styles["footer__desc"]}>{data.notice}</div>
+              <ComponentText
+                className={styles["footer__desc"]}
+                design={{
+                  fontFamily: "ibmPlexSansKR",
+                  color: "white",
+                  ...noticeDesign,
+                }}
+              >
+                {data.notice}
+              </ComponentText>
             ) : null}
 
             {data.info ? (
               <ul className={styles["list"]}>
-                {data.info.name ? (
-                  <li className={styles["list__item"]}>
-                    <strong className={styles["list__tit"]}>Name</strong>
-                    {data.info.name}
-                  </li>
-                ) : null}
-                {data.info.email ? (
-                  <li className={styles["list__item"]}>
-                    <strong className={styles["list__tit"]}>E-mail</strong>
-                    <a href={`mailto:${data.info.email}`}>{data.info.email}</a>
-                  </li>
-                ) : null}
-                {data.info.phone ? (
-                  <li className={styles["list__item"]}>
-                    <strong className={styles["list__tit"]}>Phone</strong>
-                    <a href={`SMS:${data.info.phone}`}>{data.info.phone}</a>
-                  </li>
-                ) : null}
-                {data.info.portfolio ? (
-                  <li className={styles["list__item"]}>
-                    <strong className={styles["list__tit"]}>Portfolio</strong>
-                    <GoToLink to={data.info.portfolio}>
-                      {data.info.portfolio}
-                    </GoToLink>
-                  </li>
-                ) : null}
-                {data.info.github ? (
-                  <li className={styles["list__item"]}>
-                    <strong className={styles["list__tit"]}>Git-Hub</strong>
-                    <GoToLink to={data.info.github}>
-                      {data.info.github}
-                    </GoToLink>
-                  </li>
-                ) : null}
-                {data.info.blog ? (
-                  <li className={styles["list__item"]}>
-                    <strong className={styles["list__tit"]}>Blog</strong>
-                    <GoToLink to={data.info.blog}>{data.info.blog}</GoToLink>
-                  </li>
-                ) : null}
+                {Object.entries(data.info).map(([key, value]) => {
+                  if (!value) return null;
+
+                  const title = key.charAt(0).toUpperCase() + key.slice(1);
+                  const content = getInfoContent(key, value);
+
+                  return (
+                    <li key={key} className={styles["list__item"]}>
+                      <ComponentText
+                        as={"strong"}
+                        className={styles["list__tit"]}
+                        design={{
+                          color: "white",
+                          ...infoTitleDesign,
+                        }}
+                      >
+                        {title}
+                      </ComponentText>
+                      <ComponentText
+                        as={"span"}
+                        design={{
+                          color: "white",
+                          ...infoDescDesign,
+                        }}
+                      >
+                        {content}
+                      </ComponentText>
+                    </li>
+                  );
+                })}
               </ul>
             ) : null}
           </address>
           {repeatedFootersbj ? (
-            <span className={styles["footer__sbj"]}>{repeatedFootersbj}</span>
+            <ComponentText
+              as={"span"}
+              className={styles["footer__sbj"]}
+              design={{
+                fontSize: "xl",
+                fontStyle: "italic",
+                fontWeight: "bold",
+                whiteSpace: "nowrap",
+                color: "white",
+
+                ...footersbjDesign,
+              }}
+            >
+              {repeatedFootersbj}
+            </ComponentText>
           ) : null}
         </footer>
       </section>

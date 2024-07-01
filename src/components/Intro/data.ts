@@ -1,21 +1,21 @@
-export interface Title {
+export interface TitleType {
   main?: string;
   highlight?: string;
 }
 
-export interface Item {
+export interface ItemType {
   id: string;
   title?: string;
   icon?: string;
   thumb?: string;
 }
 
-export const sbjdata: Title = {
+export const sbjdata: TitleType = {
   main: "Plan and\norgnize\n",
   highlight: "anything",
 };
 
-export const data: Item[] = [
+export const data: ItemType[] = [
   {
     id: "01",
     title: "Blog",

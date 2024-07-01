@@ -3,17 +3,35 @@ import { GoToLink } from "../GoToLink";
 import styles from "./ListHorizontal.style.module.scss";
 import { IMG_PATH } from "../../constants/path";
 import { data, sbj, Item } from "./data";
+import { ComponentTitle } from "../ComponentTitle/ComponentTitle";
+import {
+  designTitleType,
+  designTextType,
+  designBadgeType,
+} from "../../constants/types";
+import { ComponentText } from "../ComponentText/ComponentText";
+import { ComponentBadge } from "../ComponentBadge/ComponentBadge";
 
 export const ListHorizontal = ({
   bgcolor = "#310591",
   title = sbj,
   items = data,
   className,
+  titleDesign,
+  itemIdDesign,
+  itemTitleDesign,
+  itemDescDesign,
+  itemSiteDesign,
 }: {
   bgcolor?: string;
   title?: string;
   items?: Item[];
   className?: string;
+  titleDesign?: designTitleType;
+  itemIdDesign?: designTextType;
+  itemTitleDesign?: designTitleType;
+  itemDescDesign?: designTextType;
+  itemSiteDesign?: designBadgeType;
 }) => {
   return (
     <div
@@ -24,12 +42,15 @@ export const ListHorizontal = ({
       <div className={styles["pin-wrap"]} data-pin-wrap>
         {title ? (
           <div className={styles["listType3__header"]}>
-            <h2 className={styles["titleType3"]}>
+            <ComponentTitle
+              className={styles["titleType3"]}
+              design={{ color: "white", textAlign: "right", ...titleDesign }}
+            >
               {title}
               <span className={styles["titleType3__img"]}>
                 <img src={`${IMG_PATH}/mainSite__tit.png`} alt="" />
               </span>
-            </h2>
+            </ComponentTitle>
 
             <div className={styles["listType3__emoji"]}>
               <div className={styles["listType3__emojiBg"]}>
@@ -70,15 +91,62 @@ export const ListHorizontal = ({
               <div className={styles["list__item"]} key={item.id}>
                 <div className={styles["list__info"]}>
                   {item.id ? (
-                    <span className={styles["list__num"]}>{item.id}</span>
+                    <ComponentText
+                      as={"span"}
+                      className={styles["list__num"]}
+                      design={{
+                        fontStyle: "italic",
+                        fontSize: "xl",
+                        fontWeight: "bold",
+                        color: "white",
+                        opacity: "semiTransparent",
+                        ...itemIdDesign,
+                      }}
+                    >
+                      {item.id}
+                    </ComponentText>
                   ) : null}
                   {item.title ? (
-                    <strong className={styles["list__tit"]}>
+                    <ComponentTitle
+                      as={"h3"}
+                      className={styles["list__tit"]}
+                      design={{
+                        fontFamily: "montserrat",
+                        fontStyle: "italic",
+                        fontSize: "xl",
+                        color: "white",
+                        ...itemTitleDesign,
+                      }}
+                    >
                       {item.title}
-                    </strong>
+                    </ComponentTitle>
                   ) : null}
                   {item.desc ? (
-                    <p className={styles["list__desc"]}>{item.desc}</p>
+                    <ComponentText
+                      as={"p"}
+                      className={styles["list__desc"]}
+                      design={{
+                        color: "white",
+                        ...itemDescDesign,
+                      }}
+                    >
+                      {item.desc}
+                    </ComponentText>
+                  ) : null}
+                  {item.site ? (
+                    <div className={styles["list__site"]}>
+                      <ComponentBadge
+                        to={item.site}
+                        design={{
+                          color: "white",
+                          hoverColor: "deepPurple",
+                          hoverBadgeColor: "white",
+                          ...itemSiteDesign,
+                        }}
+                      >
+                        site
+                      </ComponentBadge>
+                    </div>
                   ) : null}
                 </div>
 

@@ -1,0 +1,12 @@
+@import "../../assets/styles/mixin.scss";
+
+.componentBadge{
+  display:inline-block;
+  vertical-align:top;
+  padding: 12px 24px;
+  border:1px solid #ddd;
+  border-radius: 36px;
+
+  @include design-styles;
+  @include design-hover-styles;
+}

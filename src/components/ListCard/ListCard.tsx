@@ -3,17 +3,26 @@ import { GoToLink } from "../GoToLink";
 import styles from "./ListCard.style.module.scss";
 import { IMG_PATH } from "../../constants/path";
 import { data, Item, sbjdata, Title } from "./data";
+import { ComponentTitle } from "../ComponentTitle/ComponentTitle";
+import { designTextType, designTitleType } from "../../constants/types";
+import { ComponentText } from "../ComponentText/ComponentText";
 
 export const ListCard = ({
   bgcolor = "#f5f5f5",
   title = sbjdata,
   items = data,
   className,
+  titleDesign,
+  itemTitleDesign,
+  itemDescDesign,
 }: {
   bgcolor?: string;
   title?: Title;
   items?: Item[];
   className?: string;
+  titleDesign?: designTitleType;
+  itemTitleDesign?: designTitleType;
+  itemDescDesign?: designTextType;
 }) => {
   return (
     <section
@@ -21,12 +30,16 @@ export const ListCard = ({
       data-bgcolor={bgcolor}
     >
       {title ? (
-        <h2 className={styles["titleType4"]}>
+        <ComponentTitle
+          className={styles["titleType4"]}
+          design={{ textAlign: "center", ...titleDesign }}
+        >
           {title.main}
-          <img src={`${IMG_PATH}/icon__tit02.png`} alt="" />
-          <br />
-          <span className={styles["highlight"]}>{title.highlight}</span>
-        </h2>
+          <span className={styles["highlight"]}>
+            {title.highlight}
+            <img src={`${IMG_PATH}/icon__tit02.png`} alt="" />
+          </span>
+        </ComponentTitle>
       ) : null}
 
       {items ? (
@@ -50,12 +63,27 @@ export const ListCard = ({
 
                 <div className={styles["list__info"]}>
                   {item.title ? (
-                    <strong className={styles["list__tit"]}>
+                    <ComponentTitle
+                      as={"h3"}
+                      className={styles["list__tit"]}
+                      design={{
+                        fontFamily: "montserrat",
+                        fontSize: "lg",
+                        lineHeight: "tight",
+                        ...itemTitleDesign,
+                      }}
+                    >
                       {item.title}
-                    </strong>
+                    </ComponentTitle>
                   ) : null}
                   {item.desc ? (
-                    <p className={styles["list__desc"]}>{item.desc}</p>
+                    <ComponentText
+                      as={"p"}
+                      className={styles["list__desc"]}
+                      design={{ fontSize: "xs", ...itemDescDesign }}
+                    >
+                      {item.desc}
+                    </ComponentText>
                   ) : null}
                 </div>
               </li>

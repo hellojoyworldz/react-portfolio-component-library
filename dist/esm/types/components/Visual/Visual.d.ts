@@ -1,5 +1,6 @@
 import React from "react";
-interface VisualProps {
+import { designBadgeType, designTitleType } from "../../constants/types";
+export declare const Visual: ({ bgcolor, title, className, mainTitleDesign, moveTitleDesign, badgeTitleDesign, }: {
     bgcolor?: string;
     title?: {
         main: string;
@@ -7,6 +8,7 @@ interface VisualProps {
         move: string;
     };
     className?: string;
-}
-export declare const Visual: React.FC<VisualProps>;
-export {};
+    mainTitleDesign?: designTitleType;
+    moveTitleDesign?: designTitleType;
+    badgeTitleDesign?: designBadgeType;
+}) => React.JSX.Element;

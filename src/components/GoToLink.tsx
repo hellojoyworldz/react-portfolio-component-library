@@ -7,12 +7,14 @@ interface GoToLinkProps {
   to: string;
   className?: string;
   children?: ReactNode;
+  [key: string]: any;
 }
 
 export const GoToLink: React.FC<GoToLinkProps> = ({
   to,
-  className,
+  className = "",
   children,
+  ...restProps
 }) => {
   if (isExternal(to)) {
     return (
@@ -21,13 +23,14 @@ export const GoToLink: React.FC<GoToLinkProps> = ({
         className={className}
         target="_blank"
         rel="noopener noreferrer"
+        {...restProps}
       >
         {children}
       </a>
     );
   } else {
     return (
-      <Link to={to} className={className}>
+      <Link to={to} className={className} {...restProps}>
         {children}
       </Link>
     );

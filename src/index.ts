@@ -10,3 +10,6 @@ export { ListNormal } from "./components/ListNormal/ListNormal";
 export { ListCard } from "./components/ListCard/ListCard";
 export { ListLego } from "./components/ListLego/ListLego";
 export { GoToLink } from "./components/GoToLink";
+export { ComponentTitle } from "./components/ComponentTitle/ComponentTitle";
+import { ComponentText } from "./components/ComponentText/ComponentText";
+import { ComponentBadge } from "./components/ComponentBadge/ComponentBadge";

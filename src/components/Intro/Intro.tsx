@@ -1,17 +1,24 @@
 import React from "react";
 import styles from "./Intro.style.module.scss";
-import { sbjdata, data, Title, Item } from "./data";
+import { sbjdata, data, TitleType, ItemType } from "./data";
+import { ComponentTitle } from "../ComponentTitle/ComponentTitle";
+import { ComponentText } from "../ComponentText/ComponentText";
+import { designTitleType, designTextType } from "../../constants/types";
 
 export const Intro = ({
   bgcolor = "#f5feff",
   title = sbjdata,
   items = data,
   className,
+  titleDesign,
+  itemTitleDesign,
 }: {
   bgcolor?: string;
-  title?: Title;
-  items?: Item[];
+  title?: TitleType;
+  items?: ItemType[];
   className?: string;
+  titleDesign?: designTitleType;
+  itemTitleDesign?: designTitleType;
 }) => {
   return (
     <section
@@ -19,12 +26,19 @@ export const Intro = ({
       data-bgcolor={bgcolor}
     >
       {title ? (
-        <h2 className={styles["TitleType1"]}>
+        <ComponentTitle
+          className={styles["TitleType1"]}
+          design={{
+            textAlign: "center",
+            highlightColor: "cyan",
+            ...titleDesign,
+          }}
+        >
           {title.main}
           {title.highlight && (
-            <span className={styles["highlight"]}>{title.highlight}</span>
+            <span className="highlight">{title.highlight}</span>
           )}
-        </h2>
+        </ComponentTitle>
       ) : null}
       {items ? (
         <div className={styles["listType1"]}>
@@ -34,22 +48,32 @@ export const Intro = ({
             data-scroll-speed="8"
             data-scroll-direction="horizontal"
           >
-            <ul className={styles["list"]}>
+            <ul className={`${styles["list"]} list`}>
               {items.map((item) => (
-                <li key={item.id} className={styles["list__item"]}>
+                <li key={item.id} className={`${styles["list__item"]} item`}>
                   {item.title ? (
-                    <strong className={styles["list__tit"]}>
+                    <ComponentTitle
+                      as={"h3"}
+                      className={styles["list__tit"]}
+                      design={{
+                        fontSize: "md",
+                        fontWeight: "bold",
+                        whiteSpace: "breakSpace",
+                        textAlign: "center",
+                        ...itemTitleDesign,
+                      }}
+                    >
                       {item.title}
-                    </strong>
+                    </ComponentTitle>
                   ) : null}
                   <span
-                    className={styles["list__icon"]}
+                    className={`${styles["list__icon"]} icon`}
                     style={
                       item.icon ? { backgroundImage: `url(${item.icon})` } : {}
                     }
                   ></span>
                   <span
-                    className={styles["list__thumb"]}
+                    className={`${styles["list__thumb"]} thumb`}
                     style={
                       item.thumb
                         ? { backgroundImage: `url(${item.thumb})` }

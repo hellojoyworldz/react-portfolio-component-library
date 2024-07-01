@@ -1,26 +1,50 @@
 import React from "react";
 import { GoToLink } from "../GoToLink";
 import styles from "./ListNormal.style.module.scss";
-import { IMG_PATH } from "../../constants/path";
 import { data, Item, sbj } from "./data";
+import { ComponentTitle } from "../ComponentTitle/ComponentTitle";
+import { ComponentText } from "../ComponentText/ComponentText";
+import {
+  designBadgeType,
+  designTextType,
+  designTitleType,
+} from "../../constants/types";
+import { ComponentBadge } from "../ComponentBadge/ComponentBadge";
 
 export const ListNormal = ({
   bgcolor = "#c2aeec",
   title = sbj,
   items = data,
   className,
+  titleDesign,
+  itemTypeDesign,
+  itemTitleDesign,
+  itemDescDesign,
+  itemBadgeDesign,
 }: {
   bgcolor?: string;
   title?: string;
   items?: Item[];
   className?: string;
+  titleDesign?: designTitleType;
+  itemTypeDesign?: designTextType;
+  itemTitleDesign?: designTitleType;
+  itemDescDesign?: designTextType;
+  itemBadgeDesign?: designBadgeType;
 }) => {
   return (
     <section
       className={`${styles["listNormal"]} ${className || ""}`}
       data-bgcolor={bgcolor}
     >
-      {title ? <h2 className={styles["titleType2"]}>{title}</h2> : null}
+      {title ? (
+        <ComponentTitle
+          className={styles["titleType2"]}
+          design={{ color: "deepPurple", ...titleDesign }}
+        >
+          {title}
+        </ComponentTitle>
+      ) : null}
       {items ? (
         <div className={styles["listType2"]}>
           <ul className={styles["list"]}>
@@ -34,38 +58,63 @@ export const ListNormal = ({
               >
                 <div className={styles["list__info"]}>
                   {item.type ? (
-                    <span
+                    <ComponentText
+                      as={"span"}
                       className={`${styles[`cate--${item.type}`]} ${
                         styles["list__cate"]
                       } cate--${item.type}`}
+                      design={{ fontSize: "xs", ...itemTypeDesign }}
                     >
                       {item.type}
-                    </span>
+                    </ComponentText>
                   ) : null}
                   {item.title ? (
-                    <strong className={styles["list__tit"]}>
+                    <ComponentTitle
+                      as={"h3"}
+                      className={styles["list__tit"]}
+                      design={{
+                        fontFamily: "montserrat",
+                        fontSize: "lg",
+                        ...itemTitleDesign,
+                      }}
+                    >
                       {item.title}
-                    </strong>
+                    </ComponentTitle>
                   ) : null}
                   {item.desc ? (
-                    <div className={styles["list__desc"]}>{item.desc}</div>
+                    <ComponentText
+                      className={styles["list__desc"]}
+                      design={itemDescDesign}
+                    >
+                      {item.desc}
+                    </ComponentText>
                   ) : null}
                   <div className={styles["list__type"]}>
                     {item.github ? (
-                      <GoToLink
+                      <ComponentBadge
                         to={item.github}
                         className={styles["list__typeLink"]}
+                        design={{
+                          hoverBadgeColor: "deepPurple",
+                          hoverColor: "white",
+                          ...itemBadgeDesign,
+                        }}
                       >
                         Github
-                      </GoToLink>
+                      </ComponentBadge>
                     ) : null}
                     {item.site ? (
-                      <GoToLink
+                      <ComponentBadge
                         to={item.site}
                         className={styles["list__typeLink"]}
+                        design={{
+                          hoverBadgeColor: "deepPurple",
+                          hoverColor: "white",
+                          ...itemBadgeDesign,
+                        }}
                       >
                         Site
-                      </GoToLink>
+                      </ComponentBadge>
                     ) : null}
                   </div>
                 </div>

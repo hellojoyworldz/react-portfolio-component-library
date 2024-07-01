@@ -1,8 +1,19 @@
 import React from "react";
+import { ComponentTitle } from "../ComponentTitle/ComponentTitle";
+import { ComponentBadge } from "../ComponentBadge/ComponentBadge";
 import styles from "./Visual.style.module.scss";
 import { IMG_PATH } from "../../constants/path";
+import { sbjdata } from "./data";
+import { designBadgeType, designTitleType } from "../../constants/types";
 
-interface VisualProps {
+export const Visual = ({
+  bgcolor = "#fff",
+  title = sbjdata,
+  className,
+  mainTitleDesign,
+  moveTitleDesign,
+  badgeTitleDesign,
+}: {
   bgcolor?: string;
   title?: {
     main: string;
@@ -10,18 +21,9 @@ interface VisualProps {
     move: string;
   };
   className?: string;
-}
-
-const sbjdata = {
-  main: "MY\nPORTFOLIO",
-  badge: "HELLO, WORLD!",
-  move: "WELCOME MY PORTFOLIO",
-};
-
-export const Visual: React.FC<VisualProps> = ({
-  bgcolor = "#fff",
-  title = sbjdata,
-  className,
+  mainTitleDesign?: designTitleType;
+  moveTitleDesign?: designTitleType;
+  badgeTitleDesign?: designBadgeType;
 }) => {
   return (
     <section
@@ -29,11 +31,38 @@ export const Visual: React.FC<VisualProps> = ({
       data-bgcolor={bgcolor}
     >
       <div className={styles["visual__tit"]}>
-        <h2>{title.main}</h2>
-        <span className={styles["visual__tit--move"]}>{title.badge}</span>
+        <ComponentTitle
+          className={styles["visual__title--main"]}
+          design={{
+            fontFamily: "montserrat",
+            fontSize: "lg",
+            ...mainTitleDesign,
+          }}
+        >
+          {title.main}
+        </ComponentTitle>
+        <ComponentBadge
+          className={styles["visual__tit--badge"]}
+          design={{
+            color: "white",
+            badgeColor: "green",
+            ...badgeTitleDesign,
+          }}
+        >
+          {title.badge}
+        </ComponentBadge>
       </div>
 
-      <div className={styles["visual__sbj"]}>
+      <ComponentTitle
+        as={"h3"}
+        componentName={"visualMove"}
+        className={styles["visual__sbj"]}
+        design={{
+          fontFamily: "montserrat",
+          whiteSpace: "nowrap",
+          ...moveTitleDesign,
+        }}
+      >
         <div
           className={styles["visual__sbj--move"]}
           data-scroll
@@ -45,7 +74,7 @@ export const Visual: React.FC<VisualProps> = ({
           <span>{title.move}</span>
           <span>{title.move}</span>
         </div>
-      </div>
+      </ComponentTitle>
 
       <div className={styles["visual__emoji"]}>
         <div className={styles["visual__emojiItem"]}>

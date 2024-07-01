@@ -1,0 +1,8 @@
+@import "../../assets/styles/mixin.scss";
+
+.componentText {
+
+  font-family: font-family(montserrat), font-family(ibmPlexSansKR), serif;
+
+  @include design-styles;
+}

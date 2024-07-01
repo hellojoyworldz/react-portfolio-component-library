@@ -1,24 +1,23 @@
 @import "../../assets/styles/variable.scss";
 
+// layout
 .listCard {
   margin: $lyMargin 0;
   padding: $lyPadding $lyMargin;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: $in) {
   .listCard {
     padding: 48px 16px;
     width: auto;
   }
 }
 
+
+// title
 .titleType4 {
   margin-bottom: $lyMargin;
   position: relative;
-  font-family: $fontThi, $fontFir;
-  font-size: $titSizThr;
-  color: $fontColFir;
-  text-align: center;
 
   & img {
     position: absolute;
@@ -44,10 +43,9 @@
   }
 }
 
-@media (max-width: 860px) {
+@media (max-width: $breakPoint) {
   .titleType4 {
     margin-bottom: 32px;
-    font-size: 48px;
 
     & .highlight {
       margin-left: 0;
@@ -60,6 +58,8 @@
   }
 }
 
+
+// list
 .listType4 {
   & .list {
     &__item {
@@ -85,10 +85,6 @@
       position: relative;
       display: inline-block;
       margin-bottom: 16px;
-      font-family: $fontSec, $fontFir;
-      font-size: $fontSizLv4;
-      line-height: $lineHeiLv3;
-      color: $fontColFir;
       z-index: 1;
 
       &::before {
@@ -102,13 +98,6 @@
         transition: width 0.3s;
         z-index: -1;
       }
-    }
-
-    &__desc {
-      font-size: $txtSizeLv4;
-      line-height: $lineHeiLv2;
-      color: $fontColSec;
-      white-space: break-spaces;
     }
 
     &__thumb {
@@ -159,7 +148,7 @@
   }
 }
 
-@media (max-width: 860px) {
+@media (max-width: $breakPoint) {
   .listType4 {
     .list {
       &__item {
@@ -177,14 +166,6 @@
 
       &__info {
         width: auto;
-      }
-
-      &__tit {
-        font-size: 24px;
-      }
-
-      &__desc {
-        font-size: 16px;
       }
     }
   }
