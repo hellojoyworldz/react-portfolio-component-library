@@ -1,19 +1,22 @@
 import React, { ReactNode } from "react";
 import styles from "./ComponentTitle.style.modules.scss";
 import { designTitleType, HeadingTag } from "../../constants/types";
+import { ComponentBox } from "../ComponentBox";
 
 interface TitleProps {
   as?: HeadingTag;
   children: ReactNode;
   className?: string;
+  id?: string;
   design?: designTitleType;
   componentName?: string;
 }
 
 export const ComponentTitle = ({
-  as: Component = "h2",
+  as,
   children,
   className,
+  id,
   design = {},
 }: TitleProps) => {
   const mergedClassName = [
@@ -24,7 +27,9 @@ export const ComponentTitle = ({
     .join(" ");
 
   return (
-    <Component
+    <ComponentBox
+      as={(as = "h2")}
+      id={id}
       className={mergedClassName}
       data-font-family={design?.fontFamily}
       data-font-size={design?.fontSize || "tit"}
@@ -41,6 +46,6 @@ export const ComponentTitle = ({
       data-highlightcolor={design?.highlightColor}
     >
       {children}
-    </Component>
+    </ComponentBox>
   );
 };

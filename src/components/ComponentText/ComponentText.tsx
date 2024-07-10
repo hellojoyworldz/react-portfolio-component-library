@@ -1,11 +1,13 @@
 import React, { ElementType, ReactNode } from "react";
 import styles from "./ComponentText.style.modules.scss";
 import { designTextType, TextTag } from "../../constants/types";
+import { ComponentBox } from "../ComponentBox";
 
 interface TextProps {
   as?: TextTag;
   children: ReactNode;
   className?: string;
+  id?: string;
   design?: designTextType;
   componentName?: string;
 }
@@ -14,6 +16,7 @@ export const ComponentText = ({
   as,
   children,
   className,
+  id,
   design = {},
   componentName = "",
 }: TextProps) => {
@@ -21,9 +24,10 @@ export const ComponentText = ({
     .filter(Boolean)
     .join(" ");
 
-  const Component = as || "p";
   return (
-    <Component
+    <ComponentBox
+      as={(as = "p")}
+      id={id}
       className={mergedClassName}
       data-font-family={design?.fontFamily}
       data-font-size={design?.fontSize || "sm"}
@@ -38,6 +42,6 @@ export const ComponentText = ({
       data-color={design?.color}
     >
       {children}
-    </Component>
+    </ComponentBox>
   );
 };

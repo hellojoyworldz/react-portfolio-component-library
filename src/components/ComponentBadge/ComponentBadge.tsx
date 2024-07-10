@@ -2,11 +2,13 @@ import React, { ReactNode } from "react";
 import styles from "./ComponentBadge.style.module.scss";
 import { designBadgeType, TextTag } from "../../constants/types";
 import { GoToLink } from "../GoToLink";
+import { ComponentBox } from "../ComponentBox";
 
 interface TextProps {
   as?: TextTag;
   to?: string;
   children: ReactNode;
+  id?: string;
   className?: string;
   design?: designBadgeType;
   componentName?: string;
@@ -16,6 +18,7 @@ export const ComponentBadge = ({
   as,
   to,
   children,
+  id,
   className,
   design = {},
   componentName = "",
@@ -29,6 +32,7 @@ export const ComponentBadge = ({
 
   const sharedProps = {
     className: mergedClassName,
+    id: { id },
     "data-font-family": design?.fontFamily || "montserrat",
     "data-font-size": design?.fontSize || "xxs",
     "data-font-style": design?.fontStyle,
@@ -54,6 +58,9 @@ export const ComponentBadge = ({
     );
   }
 
-  const Component = as || "span";
-  return <Component {...sharedProps}>{children}</Component>;
+  return (
+    <ComponentBox as={(as = "span")} {...sharedProps}>
+      {children}
+    </ComponentBox>
+  );
 };
