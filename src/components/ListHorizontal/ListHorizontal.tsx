@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 import { GoToLink } from "../GoToLink";
 import styles from "./ListHorizontal.style.module.scss";
 import { IMG_PATH } from "../../constants/path";
@@ -35,31 +36,31 @@ export const ListHorizontal = ({
 }) => {
   return (
     <div
-      className={`${styles["listType3"]} ${styles["horizontal-scroll"]} ${className || ""}`}
+      className={clsx(styles.listType3, styles["horizontal-scroll"], className)}
       data-bgcolor={bgcolor}
       data-horizontal-scroll
     >
-      <div className={styles["pin-wrap"]} data-pin-wrap>
+      <div className={clsx(styles["pin-wrap"])} data-pin-wrap>
         {title ? (
-          <div className={styles["listType3__header"]}>
+          <div className={clsx(styles.listType3__header)}>
             <ComponentTitle
-              className={styles["titleType3"]}
+              className={clsx(styles.titleType3)}
               design={{ color: "white", textAlign: "right", ...titleDesign }}
             >
               {title}
-              <span className={styles["titleType3__img"]}>
+              <span className={clsx(styles.titleType3__img)}>
                 <img src={`${IMG_PATH}/mainSite__tit.png`} alt="" />
               </span>
             </ComponentTitle>
 
-            <div className={styles["listType3__emoji"]}>
-              <div className={styles["listType3__emojiBg"]}>
+            <div className={clsx(styles.listType3__emoji)}>
+              <div className={clsx(styles.listType3__emojiBg)}>
                 <span>
                   <img src={`${IMG_PATH}/mainSite__emojiBg.png`} alt="" />
                 </span>
               </div>
 
-              <div className={styles["listType3__emojiCircle"]}>
+              <div className={clsx(styles.listType3__emojiCircle)}>
                 <span
                   data-scroll
                   data-scroll-speed="1"
@@ -88,12 +89,12 @@ export const ListHorizontal = ({
 
         {items
           ? items.map((item) => (
-              <div className={styles["list__item"]} key={item.id}>
-                <div className={styles["list__info"]}>
+              <div className={clsx(styles.list__item)} key={item.id}>
+                <div className={clsx(styles.list__info)}>
                   {item.id ? (
                     <ComponentText
                       as={"span"}
-                      className={styles["list__num"]}
+                      className={clsx(styles.list__num)}
                       design={{
                         fontStyle: "italic",
                         fontSize: "xl",
@@ -109,7 +110,7 @@ export const ListHorizontal = ({
                   {item.title ? (
                     <ComponentTitle
                       as={"h3"}
-                      className={styles["list__tit"]}
+                      className={clsx(styles.list__tit)}
                       design={{
                         fontFamily: "montserrat",
                         fontStyle: "italic",
@@ -124,7 +125,6 @@ export const ListHorizontal = ({
                   {item.desc ? (
                     <ComponentText
                       as={"p"}
-                      className={styles["list__desc"]}
                       design={{
                         color: "white",
                         ...itemDescDesign,
@@ -133,8 +133,8 @@ export const ListHorizontal = ({
                       {item.desc}
                     </ComponentText>
                   ) : null}
-                  {item.site ? (
-                    <div className={styles["list__site"]}>
+                  {item.site && !item.thumb ? (
+                    <div className={clsx(styles.list__site)}>
                       <ComponentBadge
                         to={item.site}
                         design={{
@@ -151,11 +151,11 @@ export const ListHorizontal = ({
                 </div>
 
                 {item.thumb ? (
-                  <span className={styles["list__thumb"]}>
+                  <span className={clsx(styles.list__thumb)}>
                     {item.site ? (
                       <GoToLink to={item.site}>
                         <img
-                          className={styles["list__img"]}
+                          className={clsx(styles.list__img)}
                           src={item.thumb}
                           alt={
                             item.alt ? item.alt : item.title ? item.title : ""
@@ -164,7 +164,7 @@ export const ListHorizontal = ({
                       </GoToLink>
                     ) : (
                       <img
-                        className={styles["list__img"]}
+                        className={clsx(styles.list__img)}
                         src={item.thumb}
                         alt={item.alt ? item.alt : item.title ? item.title : ""}
                       />

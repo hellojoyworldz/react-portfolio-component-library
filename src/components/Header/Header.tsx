@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import clsx from "clsx";
 import styles from "./Header.style.module.scss";
 import { ComponentTitle } from "../ComponentTitle/ComponentTitle";
 import { designTitleType } from "../../constants/types";
@@ -20,16 +21,13 @@ export const Header = ({
 }) => {
   return (
     <>
-      <header
-        id={styles["header"]}
-        className={`${styles["header"]} ${className || ""}`}
-      >
+      <header id={"header"} className={clsx(styles.header, className)}>
         {children ? (
           children
         ) : (
           <ComponentTitle
             as={"h1"}
-            className={styles["headerLogo"]}
+            className={clsx(styles.headerLogo)}
             design={{
               fontFamily: "montserrat",
               fontSize: "sm",
@@ -38,16 +36,16 @@ export const Header = ({
               ...titleDesign,
             }}
           >
-            <div className={styles["headerLogo__link"]}>
-              <span className={styles["headerLogo__icon"]}>
+            <div className={clsx(styles.headerLogo__link)}>
+              <span className={clsx(styles.headerLogo__icon)}>
                 {logo ? (
                   <img src={logo} alt={alt} />
                 ) : (
-                  <span className={styles["mouth"]}></span>
+                  <span className={clsx(styles.mouth)}></span>
                 )}
               </span>
               {title ? (
-                <span className={styles["headerLogo__text"]}>{title}</span>
+                <span className={clsx(styles.headerLogo__text)}>{title}</span>
               ) : null}
             </div>
           </ComponentTitle>

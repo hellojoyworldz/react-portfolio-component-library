@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 import styles from "./Intro.style.module.scss";
 import { sbjdata, data, TitleType, ItemType } from "./data";
 import { ComponentTitle } from "../ComponentTitle/ComponentTitle";
@@ -22,12 +23,12 @@ export const Intro = ({
 }) => {
   return (
     <section
-      className={`${styles["mainIntro"]} ${className || ""}`}
+      className={clsx(styles.mainIntro, className)}
       data-bgcolor={bgcolor}
     >
       {title ? (
         <ComponentTitle
-          className={styles["TitleType1"]}
+          className={clsx(styles.TitleType1)}
           design={{
             textAlign: "center",
             highlightColor: "cyan",
@@ -36,25 +37,24 @@ export const Intro = ({
         >
           {title.main}
           {title.highlight && (
-            <span className="highlight">{title.highlight}</span>
+            <span className={clsx("highlight")}>{title.highlight}</span>
           )}
         </ComponentTitle>
       ) : null}
       {items ? (
-        <div className={styles["listType1"]}>
+        <div className={clsx(styles.listType1)}>
           <div
-            className={styles["listType1__list"]}
             data-scroll
             data-scroll-speed="8"
             data-scroll-direction="horizontal"
           >
-            <ul className={`${styles["list"]} list`}>
+            <ul className={clsx(styles.list, "list")}>
               {items.map((item) => (
-                <li key={item.id} className={`${styles["list__item"]} item`}>
+                <li key={item.id} className={clsx(styles.list__item, "item")}>
                   {item.title ? (
                     <ComponentTitle
                       as={"h3"}
-                      className={styles["list__tit"]}
+                      className={clsx(styles.list__tit)}
                       design={{
                         fontSize: "md",
                         fontWeight: "bold",
@@ -67,13 +67,13 @@ export const Intro = ({
                     </ComponentTitle>
                   ) : null}
                   <span
-                    className={`${styles["list__icon"]} icon`}
+                    className={clsx(styles.list__icon, "icon")}
                     style={
                       item.icon ? { backgroundImage: `url(${item.icon})` } : {}
                     }
                   ></span>
                   <span
-                    className={`${styles["list__thumb"]} thumb`}
+                    className={clsx(styles.list__thumb, "thumb")}
                     style={
                       item.thumb
                         ? { backgroundImage: `url(${item.thumb})` }

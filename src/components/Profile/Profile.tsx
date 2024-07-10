@@ -9,6 +9,7 @@ import {
 } from "./data";
 import { designTitleType, designTextType } from "../../constants/types";
 import { ComponentText } from "../ComponentText/ComponentText";
+import clsx from "clsx";
 
 const repeatText = (text: string, times: number) => text.repeat(times);
 const getInfoContent = (key: string, value: string) => {
@@ -55,12 +56,12 @@ export const Profile = ({
   return (
     <>
       <section
-        className={`${styles["mainProfile"]} ${className || ""}`}
+        className={clsx(styles.mainProfile, className)}
         data-bgcolor={bgcolor}
       >
         {repeatedTextPath ? (
           <svg
-            className={styles["mainProfile__svg"]}
+            className={clsx(styles.mainProfile__svg)}
             width="1440"
             height="539"
             viewBox="0 0 1440 539"
@@ -94,23 +95,22 @@ export const Profile = ({
         ) : null}
 
         {data.photo ? (
-          <span className={styles["mainProfile__thumb"]}>
+          <span className={clsx(styles.mainProfile__thumb)}>
             <img src={data.photo} alt="" />
           </span>
         ) : null}
 
         <footer
-          className={styles["footer"]}
+          className={clsx(styles.footer)}
           data-bgcolor={bgcolor}
           style={{
             background: `linear-gradient(180deg, ${bgcolor}, ${bggradient})`,
           }}
         >
           <h2 className="screenHide">CONTACT ME</h2>
-          <address className={styles["footer__info"]}>
+          <address className={clsx(styles.footer__info)}>
             {data.notice ? (
               <ComponentText
-                className={styles["footer__desc"]}
                 design={{
                   fontFamily: "ibmPlexSansKR",
                   color: "white",
@@ -122,7 +122,7 @@ export const Profile = ({
             ) : null}
 
             {data.info ? (
-              <ul className={styles["list"]}>
+              <ul className={clsx(styles.list)}>
                 {Object.entries(data.info).map(([key, value]) => {
                   if (!value) return null;
 
@@ -130,10 +130,10 @@ export const Profile = ({
                   const content = getInfoContent(key, value);
 
                   return (
-                    <li key={key} className={styles["list__item"]}>
+                    <li key={key} className={clsx(styles.list__item)}>
                       <ComponentText
                         as={"strong"}
-                        className={styles["list__tit"]}
+                        className={clsx(styles.list__tit)}
                         design={{
                           color: "white",
                           ...infoTitleDesign,
@@ -159,7 +159,7 @@ export const Profile = ({
           {repeatedFootersbj ? (
             <ComponentText
               as={"span"}
-              className={styles["footer__sbj"]}
+              className={clsx(styles.footer__sbj)}
               design={{
                 fontSize: "xl",
                 fontStyle: "italic",

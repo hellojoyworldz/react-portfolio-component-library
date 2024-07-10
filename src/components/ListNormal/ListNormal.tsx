@@ -10,6 +10,7 @@ import {
   designTitleType,
 } from "../../constants/types";
 import { ComponentBadge } from "../ComponentBadge/ComponentBadge";
+import clsx from "clsx";
 
 export const ListNormal = ({
   bgcolor = "#c2aeec",
@@ -34,35 +35,37 @@ export const ListNormal = ({
 }) => {
   return (
     <section
-      className={`${styles["listNormal"]} ${className || ""}`}
+      className={clsx(styles.listNormal, className)}
       data-bgcolor={bgcolor}
     >
       {title ? (
         <ComponentTitle
-          className={styles["titleType2"]}
+          className={clsx(styles.titleType2)}
           design={{ color: "deepPurple", ...titleDesign }}
         >
           {title}
         </ComponentTitle>
       ) : null}
       {items ? (
-        <div className={styles["listType2"]}>
-          <ul className={styles["list"]}>
+        <div className={clsx(styles.listType2)}>
+          <ul className={clsx(styles.list)}>
             {items.map((item) => (
               <li
                 key={item.id}
-                className={styles["list__item"]}
+                className={clsx(styles.list__item)}
                 data-scroll
                 data-scroll-speed={item.speed || 2}
                 ata-scroll-direction="vertical"
               >
-                <div className={styles["list__info"]}>
+                <div className={clsx(styles.list__info)}>
                   {item.type ? (
                     <ComponentText
                       as={"span"}
-                      className={`${styles[`cate--${item.type}`]} ${
-                        styles["list__cate"]
-                      } cate--${item.type}`}
+                      className={clsx(
+                        styles.list__cate,
+                        styles[`cate--${item.type}`],
+                        `cate--${item.type}`,
+                      )}
                       design={{ fontSize: "xs", ...itemTypeDesign }}
                     >
                       {item.type}
@@ -71,7 +74,7 @@ export const ListNormal = ({
                   {item.title ? (
                     <ComponentTitle
                       as={"h3"}
-                      className={styles["list__tit"]}
+                      className={clsx(styles.list__tit)}
                       design={{
                         fontFamily: "montserrat",
                         fontSize: "lg",
@@ -82,18 +85,15 @@ export const ListNormal = ({
                     </ComponentTitle>
                   ) : null}
                   {item.desc ? (
-                    <ComponentText
-                      className={styles["list__desc"]}
-                      design={itemDescDesign}
-                    >
+                    <ComponentText design={itemDescDesign}>
                       {item.desc}
                     </ComponentText>
                   ) : null}
-                  <div className={styles["list__type"]}>
+                  <div className={clsx(styles.list__type)}>
                     {item.github ? (
                       <ComponentBadge
                         to={item.github}
-                        className={styles["list__typeLink"]}
+                        className={clsx(styles.list__typeLink)}
                         design={{
                           hoverBadgeColor: "deepPurple",
                           hoverColor: "white",
@@ -106,7 +106,7 @@ export const ListNormal = ({
                     {item.site ? (
                       <ComponentBadge
                         to={item.site}
-                        className={styles["list__typeLink"]}
+                        className={clsx(styles.list__typeLink)}
                         design={{
                           hoverBadgeColor: "deepPurple",
                           hoverColor: "white",
@@ -119,7 +119,7 @@ export const ListNormal = ({
                   </div>
                 </div>
                 {item.thumb ? (
-                  <div className={styles["list__thumb"]}>
+                  <div className={clsx(styles.list__thumb)}>
                     <img
                       data-speed="auto"
                       src={item.thumb}

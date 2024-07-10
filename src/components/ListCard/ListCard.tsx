@@ -6,6 +6,7 @@ import { data, Item, sbjdata, Title } from "./data";
 import { ComponentTitle } from "../ComponentTitle/ComponentTitle";
 import { designTextType, designTitleType } from "../../constants/types";
 import { ComponentText } from "../ComponentText/ComponentText";
+import clsx from "clsx";
 
 export const ListCard = ({
   bgcolor = "#f5f5f5",
@@ -26,16 +27,16 @@ export const ListCard = ({
 }) => {
   return (
     <section
-      className={`${styles["listCard"]} ${className || ""}`}
+      className={clsx(styles.listCard, className)}
       data-bgcolor={bgcolor}
     >
       {title ? (
         <ComponentTitle
-          className={styles["titleType4"]}
+          className={clsx(styles.titleType4)}
           design={{ textAlign: "center", ...titleDesign }}
         >
           {title.main}
-          <span className={styles["highlight"]}>
+          <span className={clsx(styles.highlight)}>
             {title.highlight}
             <img src={`${IMG_PATH}/icon__tit02.png`} alt="" />
           </span>
@@ -43,17 +44,20 @@ export const ListCard = ({
       ) : null}
 
       {items ? (
-        <div className={styles["listType4"]}>
-          <ul className={styles["list"]}>
+        <div className={clsx(styles.listType4)}>
+          <ul className={clsx(styles.list)}>
             {items.map((item) => (
-              <li className={styles["list__item"]} key={item.id}>
+              <li className={clsx(styles.list__item)} key={item.id}>
                 {item.site ? (
-                  <GoToLink to={item.site} className={styles["list__link"]} />
+                  <GoToLink
+                    to={item.site}
+                    className={clsx(styles.list__link)}
+                  />
                 ) : null}
                 {item.thumb ? (
-                  <div className={styles["list__thumb"]}>
+                  <div className={clsx(styles.list__thumb)}>
                     <span
-                      className={styles["list__thumbGif"]}
+                      className={clsx(styles.list__thumbGif)}
                       style={{
                         backgroundImage: `url(${item.thumb})`,
                       }}
@@ -61,11 +65,11 @@ export const ListCard = ({
                   </div>
                 ) : null}
 
-                <div className={styles["list__info"]}>
+                <div className={clsx(styles.list__info)}>
                   {item.title ? (
                     <ComponentTitle
                       as={"h3"}
-                      className={styles["list__tit"]}
+                      className={clsx(styles.list__tit)}
                       design={{
                         fontFamily: "montserrat",
                         fontSize: "lg",
@@ -79,7 +83,6 @@ export const ListCard = ({
                   {item.desc ? (
                     <ComponentText
                       as={"p"}
-                      className={styles["list__desc"]}
                       design={{ fontSize: "xs", ...itemDescDesign }}
                     >
                       {item.desc}

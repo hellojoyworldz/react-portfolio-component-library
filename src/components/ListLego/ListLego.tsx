@@ -6,6 +6,7 @@ import { sbjdata, data, Title, Item } from "./data";
 import { ComponentTitle } from "../ComponentTitle/ComponentTitle";
 import { designTitleType, designTextType } from "../../constants/types";
 import { ComponentText } from "../ComponentText/ComponentText";
+import clsx from "clsx";
 
 export const ListLego = ({
   bgcolor = "#f6f3ff",
@@ -26,18 +27,18 @@ export const ListLego = ({
 }) => {
   return (
     <section
-      className={`${styles["listLego"]} ${className || ""}`}
+      className={clsx(styles.listLego, className)}
       data-bgcolor={bgcolor}
     >
       {title ? (
         <ComponentTitle
-          className={styles["titleType5"]}
+          className={clsx(styles.titleType5)}
           design={{ textAlign: "center", ...titleDesign }}
         >
           {title.main ? title.main : null}
           {title.highlight ? (
             <>
-              <span className={styles["highlight"]}>
+              <span className={clsx(styles.highlight)}>
                 {title.highlight}
                 <img src={`${IMG_PATH}/icon__tit03.png`} alt="" />
               </span>
@@ -47,25 +48,23 @@ export const ListLego = ({
       ) : null}
 
       {items ? (
-        <div className={styles["listType5"]}>
-          <ul className={styles["list"]}>
+        <div className={clsx(styles.listType5)}>
+          <ul className={clsx(styles.list)}>
             {items.map((item) => (
               <li
-                className={`${styles["list__item"]} ${
-                  styles[`item${item.id}`]
-                }`}
+                className={clsx(styles.list__item, styles[`item${item.id}`])}
                 key={item.id}
               >
                 {item.site && (
                   <GoToLink
                     to={item.site}
-                    className={styles["list__link"]}
+                    className={clsx(styles.list__link)}
                   ></GoToLink>
                 )}
                 {item.title && (
                   <ComponentTitle
                     as={"h3"}
-                    className={styles["list__tit"]}
+                    className={clsx(styles.list__tit)}
                     design={{
                       fontFamily: "montserrat",
                       fontSize: "lg",
@@ -79,7 +78,7 @@ export const ListLego = ({
                 {item.type && (
                   <ComponentText
                     as={"span"}
-                    className={styles["list__cate"]}
+                    className={clsx(styles.list__cate)}
                     design={{
                       color: "white",
                       lineHeight: "tight",
@@ -90,7 +89,7 @@ export const ListLego = ({
                   </ComponentText>
                 )}
                 <span
-                  className={styles["list__thumb"]}
+                  className={clsx(styles.list__thumb)}
                   style={{
                     backgroundImage: item.thumb,
                   }}
