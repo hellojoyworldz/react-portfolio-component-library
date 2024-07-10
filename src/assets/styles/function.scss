@@ -1,0 +1,69 @@
+@import "design";
+
+@function design-get($key, $subkey: null) {
+  @if $subkey {
+    @return map-get(map-get($design, $key), $subkey);
+  } @else {
+    @return map-get($design, $key);
+  }
+}
+
+@function font-family($key) {
+  @return design-get(fontFamily, $key);
+}
+
+@function font-weight($key) {
+  @return design-get(fontWeight, $key);
+}
+
+@function font-size($key, $viewport: default) {
+  @return map-get(design-get(fontSize, $key), $viewport);
+}
+
+@function font-style($key) {
+  @return design-get(fontStyle, $key);
+}
+
+@function line-height($key) {
+  @return design-get(lineHeight, $key);
+}
+
+@function letter-spacing($key) {
+  @return design-get(letterSpacing, $key);
+}
+
+@function text-decoration($key) {
+  @return design-get(textDecoration, $key);
+}
+
+@function text-transform($key) {
+  @return design-get(textTransform, $key);
+}
+
+@function text-align($key) {
+  @return design-get(textAlign, $key);
+}
+
+@function white-space($key) {
+  @return design-get(whiteSpace, $key);
+}
+
+@function color($key) {
+  @return design-get(colors, $key);
+}
+
+@function border-color($key) {
+  @return design-get(colors, $key);
+}
+
+@function background-color($key) {
+  @return design-get(colors, $key);
+}
+
+@function highlight-color($key) {
+  @return design-get(colors, $key);
+}
+
+@function opacity($key) {
+  @return design-get(opacities, $key);
+}

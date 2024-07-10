@@ -1,17 +1,17 @@
 @charset "UTF-8";
+
 $IMG_PATH: "https://raw.githubusercontent.com/hellojoyworldz/myPORTFOLIO/ver_html/assets/img";
 
+// layout
 $in: 1440px;
+$breakPoint: 1024px;
 $lyMargin: 96px;
 $lyPadding: 240px;
 $lyGap: 24px;
 $lyRadius: 36px;
 $lyMinHeight: 730px;
 
-$font__first: "IBM Plex Sans KR";
-$font__second: "Montserrat";
-$font__third: "Fredoka";
-$font__forth: "Permanent Marker";
+// font-family
 $fontFir: "IBM Plex Sans KR";
 $fontSec: "Montserrat";
 $fontThi: "Fredoka";
@@ -19,35 +19,26 @@ $fontFor: "Permanent Marker";
 $fontKo: $fontFir;
 $fontEn: $fontSec;
 
-// variable
-
+// font-size
 $fontSizLv1: 6vw;
 $fontSizLv2: 96px;
-$fontSizLv3: 48px;
-$fontSizLv4: 36px;
-$fontSizLv5: 24px;
-$fontSizLv6: 18px;
-$fontSizLv7: 14px;
-$titSizFir: $fontSizLv1;
-$titSizSec: $fontSizLv2;
-$titSizThr: 72px;
-$txtSizeLv1: $fontSizLv3;
-$txtSizeLv2: $fontSizLv4;
-$txtSizeLv3: $fontSizLv5;
-$txtSizeLv4: $fontSizLv6;
-$txtSizeLv5: $fontSizLv7;
+$fontSizLv3: 72px;
+$fontSizLv4: 48px;
+$fontSizLv5: 36px;
+$fontSizLv6: 24px;
+$fontSizLv7: 20px;
+$fontSizLv8: 18px;
+$fontSizLv9: 14px;
 
+// line-height
 $lineHei150: 150%;
 $lineHei140: 140%;
 $lineHei130: 130%;
 $lineHei120: 120%;
 $lineHei110: 110%;
 $lineHei100: 100%;
-$lineHeiLv0: $lineHei100;
-$lineHeiLv1: $lineHei150;
-$lineHeiLv2: $lineHei140;
-$lineHeiLv3: $lineHei120;
 
+// color
 $black111: #111;
 $black222: #222;
 $black333: #333;
@@ -71,3 +62,5 @@ $colPoint4: #41e0eb;
 $colPoint5: #f06b67;
 $colPoint6: #ff7896;
 $colPoint7: #f7ff2f;
+$colPoint8: #310591;
+$colPoint9: #2ea34e;

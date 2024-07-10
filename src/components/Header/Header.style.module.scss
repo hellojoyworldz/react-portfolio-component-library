@@ -50,11 +50,6 @@
       position: relative;
       display: block;
       margin-left: 26px;
-      font-family: $fontSec, $fontFir;
-      font-size: $fontSizLv6;
-      line-height: $lineHei100;
-      color: $black222;
-      white-space: break-spaces;
     }
 
     &__text::before {
@@ -70,7 +65,7 @@
   }
 }
 
-@media (max-width: 860px) {
+@media (max-width: $breakPoint) {
   .header {
     top: 16px;
     left: 16px;

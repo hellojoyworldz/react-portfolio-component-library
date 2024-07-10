@@ -1,0 +1,93 @@
+@import 'variable';
+
+$design: (
+  fontFamily: (
+    montserrat: $fontSec,
+    fredoka: $fontThi,
+    ibmPlexSansKR: $fontFir,
+    permanentMarker: $fontFor
+  ),
+  fontWeight: (
+    light: 300,
+    regular: 400,
+    medium: 500,
+    semibold: 600,
+    bold: 700
+  ),
+  fontSize: (
+    tit: (default: $fontSizLv1, breakpoint: $fontSizLv3),
+    xxl: (default: $fontSizLv2, breakpoint: $fontSizLv3),
+    xl: (default: $fontSizLv3, breakpoint: $fontSizLv4),
+    lg: (default: $fontSizLv4, breakpoint: $fontSizLv5),
+    md: (default: $fontSizLv5, breakpoint: $fontSizLv6),
+    sm: (default: $fontSizLv6, breakpoint: $fontSizLv7),
+    xs: (default: $fontSizLv7, breakpoint: $fontSizLv8),
+    xxs: (default: $fontSizLv8, breakpoint: $fontSizLv9)
+  ),
+  fontStyle : (
+    normal: normal,
+    italic: italic
+  ),
+  lineHeight: (
+    wide: $lineHei150,
+    normal: $lineHei120,
+    tight: $lineHei100
+  ),
+  letterSpacing: (
+    tight: -0.05em,
+    normal: 0,
+    wide: 0.05em
+  ),
+  textDecoration: (
+    none: none,
+    underline: underline
+  ),
+  textTransform: (
+    none: none,
+    uppercase: uppercase,
+    lowercase: lowercase
+  ),
+  textAlign: (
+    left: left,
+    center: center,
+    right: right
+  ),
+  whiteSpace: (
+    normal: normal,
+    nowrap: nowrap,
+    preWrap: pre-wrap,
+    breakSpace: break-spaces,
+  ),
+  colors: (
+    "purple": $colPoint1,
+    "deepPurple": $colPoint8,
+    "yellow": $colPoint2,
+    "lemonYellow": $colPoint7,
+    "green": $colPoint9,
+    "lime": $colPoint3,
+    "cyan": $colPoint4,
+    "coral": $colPoint5,
+    "pink": $colPoint6,
+    "white": $whiteFff,
+    "gray100": $whiteF9f,
+    "gray200": $whiteF5f,
+    "gray300": $whiteF1f,
+    "gray400": $greyEae,
+    "gray500": $greyDdd,
+    "gray600": $greyAaa,
+    "gray700": $black666,
+    "gray800": $black555,
+    "gray900": $black444,
+    "blackLight": $black333,
+    "blackMedium": $black222,
+    "black": $black111
+  ),
+  opacities: (
+    "opaque": 1,
+    "semiOpaque": 0.8,
+    "translucent": 0.6,
+    "semiTransparent": 0.4,
+    "transparent": 0.2,
+    "invisible": 0
+  )
+);

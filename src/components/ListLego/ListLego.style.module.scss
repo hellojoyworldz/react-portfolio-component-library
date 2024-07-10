@@ -1,23 +1,21 @@
 @import "../../assets/styles/variable.scss";
 
+// layout
 .listLego {
   margin: $lyMargin 0;
   padding: $lyPadding $lyMargin;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: $in) {
   .listLego {
     padding: 48px 16px;
   }
 }
 
+// title
 .titleType5 {
   position: relative;
   margin-bottom: $lyMargin;
-  font-family: $fontThi, $fontFir;
-  font-size: $titSizThr;
-  color: $fontColFir;
-  text-align: center;
 
   & .highlight {
     position: relative;
@@ -32,13 +30,13 @@
   }
 }
 
-@media (max-width: 860px) {
+@media (max-width: $breakPoint) {
   .titleType5 {
     margin-bottom: 32px;
-    font-size: 48px;
   }
 }
 
+// list
 .listType5 {
   & .list {
     display: grid;
@@ -55,64 +53,93 @@
       position: relative;
       border-radius: $lyRadius;
       overflow: hidden;
+      background:#f1f1f1;
 
       &.item01 {
         grid-area: a;
+        aspect-ratio: 100 / 100;
+        & .list__thumb{
+          background-image:url($IMG_PATH + "/mainCode__img01.jpg");
+        }
       }
 
       &.item02 {
         grid-area: b;
+        aspect-ratio: 100 / 100;
+        & .list__thumb{
+          background-image:url($IMG_PATH + "/mainCode__img02.jpg");
+        }
       }
 
       &.item03 {
         grid-area: c;
+        aspect-ratio: 100 / 207;
+        & .list__thumb{
+          background-image:url($IMG_PATH + "/mainCode__img05.jpg");
+        }
       }
 
       &.item04 {
         grid-area: d;
+        aspect-ratio: 204 / 100;
+        & .list__thumb{
+          background-image:url($IMG_PATH + "/mainCode__img06.jpg");
+        }
       }
 
       &.item05 {
         grid-area: e;
+        aspect-ratio: 100 / 100;
+        & .list__thumb{
+          background-image:url($IMG_PATH + "/mainCode__img07.jpg");
+        }
       }
 
       &.item06 {
         grid-area: f;
+        aspect-ratio: 100 / 100;
+        & .list__thumb{
+          background-image:url($IMG_PATH + "/mainCode__img09.jpg");
+        }
       }
 
       &.item07 {
         grid-area: g;
+        aspect-ratio: 204 / 100;
+        & .list__thumb{
+          background-image:url($IMG_PATH + "/mainCode__img10.jpg");
+        }
+      }
+
+      &:hover{
+        & .list__thumb {
+          transform: scale(1.1);
+        }
       }
     }
 
     &__tit {
       position: absolute;
       left: 36px;
+      right: 36px;
       top: 36px;
-      font-family: $fontSec, $fontFir;
-      font-size: $fontSizLv3;
-      line-height: $lineHeiLv3;
-      color: $whiteFff;
-      white-space: break-spaces;
       z-index: 1;
     }
 
     &__cate {
       position: absolute;
       left: 36px;
+      right: 36px;
       bottom: 36px;
-      font-family: $fontSec, $fontFir;
-      font-size: $txtSizeLv3;
-      line-height: $lineHeiLv0;
-      color: $whiteFff;
       z-index: 1;
     }
 
     &__desc {
       position: absolute;
       left: 36px;
+      right: 36px;
       bottom: 96px;
-      font-size: $txtSizeLv4;
+      font-size: $fontSizLv6;
       color: $whiteFff;
       z-index: 1;
     }
@@ -121,15 +148,12 @@
       display: block;
       width: 100%;
       height: 100%;
+      background-color:$greyDdd;
+      background-size:cover;
+      background-repeat: no-repeat;
       border-radius: $lyRadius;
       overflow: hidden;
       isolation: isolate;
-    }
-
-    &__img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
       transition: 0.3s;
     }
 
@@ -142,15 +166,10 @@
       z-index: 2;
     }
 
-    &__item:hover {
-      & .list__img {
-        transform: scale(1.1);
-      }
-    }
   }
 }
 
-@media (max-width: 1440px) {
+@media (max-width: $in) {
   .listType5 {
     & .list {
       grid-gap: 12px;
@@ -159,7 +178,7 @@
   }
 }
 
-@media (max-width: 860px) {
+@media (max-width: $breakPoint) {
   .listType5 {
     & .list {
       // grid-template-columns: repeat(1, 1fr);
@@ -174,18 +193,46 @@
 
       &__item {
         height: 360px;
+
+        &.item01 {
+          aspect-ratio: auto
+        }
+
+        &.item02 {
+          aspect-ratio: auto
+        }
+
+        &.item03 {
+          aspect-ratio: auto
+        }
+
+        &.item04 {
+          aspect-ratio: auto
+        }
+
+        &.item05 {
+          aspect-ratio: auto
+        }
+
+        &.item06 {
+          aspect-ratio: auto
+        }
+
+        &.item07 {
+          aspect-ratio: auto
+        }
       }
 
       &__tit {
         top: 24px;
         left: 24px;
-        font-size: 24px;
+        right: 24px;
       }
 
       &__cate {
         left: 24px;
+        right: 24px;
         bottom: 24px;
-        font-size: 16px;
       }
     }
   }

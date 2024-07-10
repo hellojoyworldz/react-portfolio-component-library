@@ -1,8 +1,6 @@
 @import "../../assets/styles/variable.scss";
 
 .visual {
-  font-family: $font__second, $fontFir;
-
   .in {
     position: relative;
   }
@@ -11,26 +9,12 @@
     position: absolute;
     top: 240px;
     left: 96px;
+    right: 96px;
     text-align: left;
     z-index: 1;
 
-    & h2 {
-      margin-bottom: 16px;
-      font-size: 40px;
-      line-height: 1.2em;
-      color: $black222;
-      white-space: break-spaces;
-    }
-
-    &--move {
-      display: inline-block;
-      padding: 0 24px;
-      height: 40px;
-      font-size: 16px;
-      line-height: 40px;
-      color: $whiteFff;
-      background: #2ea34e;
-      border-radius: 40px;
+    &--badge {
+      margin-top: 16px;
     }
   }
 
@@ -41,13 +25,6 @@
     width: 100vw;
     height: 100vh;
     min-height: 730px;
-    font-weight: bold;
-    font-style: italic;
-    font-size: 6vw;
-    line-height: 1em;
-    color: #333;
-    text-transform: uppercase;
-    white-space: nowrap;
     transform: rotate(-6deg);
     overflow: hidden;
 
@@ -123,15 +100,6 @@
 
     &Item {
       z-index: 1;
-
-      .item01 {
-      }
-
-      .item02 {
-      }
-
-      .item03 {
-      }
     }
 
     &Bg > span,
@@ -156,24 +124,16 @@
     &__tit {
       top: 100px;
       left: 24px;
+      right: 24px;
 
-      & h2 {
-        margin-bottom: 8px;
-        font-size: 24px;
-      }
-
-      &--move {
-        padding: 0 16px;
-        height: 36px;
-        line-height: 36px;
-        font-size: 12px;
+      &--badge {
+        margin-top: 8px;
       }
     }
 
     &__sbj {
       height: auto;
       min-height: 600px;
-      font-size: 36px;
     }
 
     &__emoji {

@@ -1,24 +1,33 @@
-import React from "react";
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef, ElementType, ReactNode } from "react";
 import gsap from "gsap";
 import locomotiveScroll from "locomotive-scroll";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
-export const PortfolioContent = ({ as = "main", children, className }) => {
-  const scrollRef = useRef(null);
+export const PortfolioContent = <T extends ElementType = "main">({
+  as,
+  children,
+  className,
+}: {
+  as?: T;
+  children: ReactNode;
+  className?: string;
+}) => {
+  const scrollRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     if (!scrollRef.current) return;
 
-    scrollRef.current.setAttribute("data-scroll-container", "");
+    if ("setAttribute" in scrollRef.current) {
+      scrollRef.current.setAttribute("data-scroll-container", "");
+    }
 
     // locomotive
     const scroll = new locomotiveScroll({
-      el: scrollRef.current,
+      el: scrollRef.current as HTMLElement,
       smooth: true,
-    });
+    }) as any;
 
     scroll.on("scroll", ScrollTrigger.update);
 
@@ -36,37 +45,41 @@ export const PortfolioContent = ({ as = "main", children, className }) => {
           height: window.innerHeight,
         };
       },
-      pinType: scrollRef.current.style.transform ? "transform" : "fixed",
+      pinType: scrollRef.current?.style.transform ? "transform" : "fixed",
     });
 
     // 가로스크롤
-    const horizontalSections = document.querySelectorAll(
+    const horizontalSections = document.querySelectorAll<HTMLElement>(
       "[data-horizontal-scroll]",
     );
 
     horizontalSections.forEach((horizontalSection) => {
-      const pinWrap = horizontalSection.querySelector("[data-pin-wrap]");
-      const pinWrapWidth = pinWrap.offsetWidth;
-      const horizontalScrollLength = pinWrapWidth - window.innerWidth;
+      const pinWrap =
+        horizontalSection.querySelector<HTMLElement>("[data-pin-wrap]");
+      if (pinWrap) {
+        const pinWrapWidth = pinWrap.offsetWidth;
+        const horizontalScrollLength = pinWrapWidth - window.innerWidth;
 
-      gsap.to(pinWrap, {
-        scrollTrigger: {
-          scroller: scrollRef.current,
-          scrub: true,
-          trigger: horizontalSection,
-          pin: true,
-          start: "top top",
-          markers: false,
-          end: () => `+=${pinWrapWidth}`,
-          invalidateOnRefresh: true,
-        },
-        x: -horizontalScrollLength,
-        ease: "none",
-      });
+        gsap.to(pinWrap, {
+          scrollTrigger: {
+            scroller: scrollRef.current,
+            scrub: true,
+            trigger: horizontalSection,
+            pin: true,
+            start: "top top",
+            markers: false,
+            end: () => `+=${pinWrapWidth}`,
+            invalidateOnRefresh: true,
+          },
+          x: -horizontalScrollLength,
+          ease: "none",
+        });
+      }
     });
 
     // 배경 색상 변경
-    const scrollColorElems = document.querySelectorAll("[data-bgcolor]");
+    const scrollColorElems =
+      document.querySelectorAll<HTMLElement>("[data-bgcolor]");
 
     scrollColorElems.forEach((colorSection, i) => {
       const prevBg = i === 0 ? "" : scrollColorElems[i - 1].dataset.bgcolor;
@@ -91,16 +104,20 @@ export const PortfolioContent = ({ as = "main", children, className }) => {
       });
     });
 
-    ScrollTrigger.addEventListener("refresh", () => scroll.update());
+    ScrollTrigger.addEventListener("refresh", () => {
+      scroll.update();
+    });
     ScrollTrigger.refresh();
 
     return () => {
       scroll.destroy();
     };
   }, []);
+
+  const Component = as || "main";
   return (
-    <div id="content" ref={scrollRef} className={className || ""}>
+    <Component id="content" ref={scrollRef} className={className || ""}>
       {children}
-    </div>
+    </Component>
   );
 };

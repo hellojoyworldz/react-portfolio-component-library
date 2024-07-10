@@ -16,7 +16,7 @@
     & textPath {
       position: relative;
       font-family: $fontSec, $fontFir;
-      font-size: $lineHeiLv1;
+      font-size: 150%;
       font-weight: bold;
       color: $colPoint6;
       filter: currentColor;
@@ -44,20 +44,8 @@
 
   &__sbj {
     display: block;
-    font-weight: bold;
-    font-style: italic;
-    font-family: $fontSec, $fontFir;
-    font-size: $titSizSec;
-    line-height: $lineHeiLv3;
-    color: $whiteFff;
-    white-space: nowrap;
     will-change: transform;
     animation: moving 30s linear infinite;
-  }
-
-  &__desc {
-    font-size: $fontSizLv5;
-    color: #fff;
   }
 
   &__info {
@@ -65,10 +53,6 @@
     & .list {
       &__item {
         margin: 16px 0;
-        font-family: $fontSec, $fontFir;
-        font-size: $fontSizLv5;
-        line-height: $lineHei100;
-        color: $whiteFff;
       }
 
       &__tit {
@@ -78,16 +62,9 @@
   }
 }
 
-@keyframes moving {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
 
-@media (max-width: 1440px) {
+
+@media (max-width: $in) {
   .mainProfile {
     padding: 96px 0 0 0;
 
@@ -100,13 +77,6 @@
     padding: 48px 0;
     box-sizing: border-box;
 
-    &__sbj {
-      font-size: 48px;
-      line-height: 64px;
-    }
-    &__desc {
-      font-size: 18px;
-    }
 
     &__info {
       margin: 16px 24px 96px;
@@ -118,10 +88,17 @@
         }
         &__item {
           margin: 8px;
-          font-size: 16px;
-          line-height: 1em;
         }
       }
     }
+  }
+}
+
+@keyframes moving {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }

@@ -1,17 +1,24 @@
 import React from "react";
+import clsx from "clsx";
 import styles from "./Banner.style.module.scss";
 import { IMG_PATH } from "../../constants/path";
 
-export const Banner = ({ bgcolor = "#fde445", className }) => {
+export const Banner = ({
+  bgcolor = "#fde445",
+  className,
+}: {
+  bgcolor?: string;
+  className?: string;
+}) => {
   return (
     <section
-      className={`${styles["mainBanner"]} ${className || ""}`}
+      className={clsx(styles.mainBanner, className)}
       data-bgcolor={bgcolor}
     >
-      <div className={styles["mainBanner__bg"]}>
+      <div>
         <img src={`${IMG_PATH}/mainBanner__bg.png`} alt="" />
       </div>
-      <div className={styles["mainBanner__emoji"]}>
+      <div className={clsx(styles.mainBanner__emoji)}>
         <span
           data-scroll
           data-scroll-speed="2"

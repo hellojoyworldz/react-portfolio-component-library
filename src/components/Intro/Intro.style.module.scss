@@ -1,32 +1,29 @@
 @import "../../assets/styles/variable.scss";
 
+// layout
 .mainIntro {
-  padding: $lyPadding 0;
+  padding: $lyPadding 24px;
   overflow-x: hidden;
 }
 
+@media (max-width: $breakPoint) {
+  .mainIntro {
+    padding: $lyPadding 16px;
+  }
+}
+
+// title
 .TitleType1 {
   margin-bottom: $lyMargin;
-  font-family: $fontThi, $fontFir;
-  font-weight: 600;
-  font-size: $fontSizLv1;
-  line-height: $lineHeiLv3;
-  color: $fontColFir;
-  text-align: center;
-  white-space: break-spaces;
-
-  & .highlight {
-    color: $colPoint4;
-  }
 }
 
-@media (max-width: 860px) {
+@media (max-width: $breakPoint) {
   .TitleType1 {
     margin-bottom: 32px;
-    font-size: 52px;
   }
 }
 
+// list
 .listType1 {
   display: flex;
   width: 100vw;
@@ -58,10 +55,6 @@
       position: absolute;
       bottom: 8vw;
       width: 100%;
-      text-align: center;
-      font-size: 2.5vw;
-      line-height: 1.2em;
-      white-space: break-spaces;
       z-index: 2;
     }
 
@@ -157,7 +150,7 @@
   }
 }
 
-@media (max-width: 860px) {
+@media (max-width: $breakPoint) {
   .listType1 {
     & .list {
       grid-column-gap: 16px;
@@ -168,7 +161,6 @@
 
       &__tit {
         bottom: 110px;
-        font-size: 32px;
       }
     }
   }

@@ -1,0 +1,8 @@
+@import "../../assets/styles/mixin.scss";
+
+.componentTitle {
+  font-family: font-family(fredoka), font-family(ibmPlexSansKR), serif;
+
+  @include design-styles;
+  @include design-highlight-styles;
+}
