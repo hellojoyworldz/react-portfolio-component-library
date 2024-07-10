@@ -13,7 +13,7 @@ interface TitleProps {
 }
 
 export const ComponentTitle = ({
-  as,
+  as = "h2",
   children,
   className,
   id,
@@ -28,7 +28,7 @@ export const ComponentTitle = ({
 
   return (
     <ComponentBox
-      as={(as = "h2")}
+      as={as}
       id={id}
       className={mergedClassName}
       data-sa-font-family={design?.fontFamily}

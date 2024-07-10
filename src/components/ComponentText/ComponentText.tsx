@@ -13,7 +13,7 @@ interface TextProps {
 }
 
 export const ComponentText = ({
-  as,
+  as = "p",
   children,
   className,
   id,
@@ -26,7 +26,7 @@ export const ComponentText = ({
 
   return (
     <ComponentBox
-      as={(as = "p")}
+      as={as}
       id={id}
       className={mergedClassName}
       data-sa-font-family={design?.fontFamily}
@@ -40,6 +40,7 @@ export const ComponentText = ({
       data-sa-text-align={design?.textAlign}
       data-sa-white-space={design?.whiteSpace}
       data-sa-color={design?.color}
+      data-sa-opacity={design?.opacity}
     >
       {children}
     </ComponentBox>

@@ -15,7 +15,7 @@ interface TextProps {
 }
 
 export const ComponentBadge = ({
-  as,
+  as = "span",
   to,
   children,
   id,
@@ -59,7 +59,7 @@ export const ComponentBadge = ({
   }
 
   return (
-    <ComponentBox as={(as = "span")} {...sharedProps}>
+    <ComponentBox as={as} {...sharedProps}>
       {children}
     </ComponentBox>
   );
