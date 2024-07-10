@@ -2,7 +2,7 @@
 
 @mixin apply-design-attribute($dataset, $property){
   @each $key, $value in design-get($property) {
-    &[data-#{$dataset}="#{$key}"] {
+    &[data-sa-#{$dataset}="#{$key}"] {
       @if $property == 'fontSize' {
         #{$dataset}: font-size($key, default);
         @media (max-width: $breakPoint) {
@@ -34,7 +34,7 @@
 
 @mixin design-highlight-styles{
   @each $key, $value in design-get(colors) {
-    &[data-highlightcolor="#{$key}"] {
+    &[data-sa-highlightcolor="#{$key}"] {
       & .highlight{
         color: #{$value};
       }
@@ -44,7 +44,7 @@
 
 @mixin design-hover-styles{
   @each $key, $value in design-get(colors) {
-    &[data-hoverbadgecolor="#{$key}"] {
+    &[data-sa-hoverbadgecolor="#{$key}"] {
       &:hover{
         background-color: #{$value};
       }
@@ -52,7 +52,7 @@
   }
 
   @each $key, $value in design-get(colors) {
-    &[data-hovercolor="#{$key}"] {
+    &[data-sa-hovercolor="#{$key}"] {
       &:hover{
         color :#{$value};
       }

@@ -29,17 +29,17 @@ export const ComponentText = ({
       as={(as = "p")}
       id={id}
       className={mergedClassName}
-      data-font-family={design?.fontFamily}
-      data-font-size={design?.fontSize || "sm"}
-      data-font-style={design?.fontStyle}
-      data-font-weight={design?.fontWeight}
-      data-line-height={design?.lineHeight}
-      data-letter-spacing={design?.letterSpacing}
-      data-text-decoration={design?.textDecoration}
-      data-text-transform={design?.textTransform}
-      data-text-align={design?.textAlign}
-      data-white-space={design?.whiteSpace}
-      data-color={design?.color}
+      data-sa-font-family={design?.fontFamily}
+      data-sa-font-size={design?.fontSize || "sm"}
+      data-sa-font-style={design?.fontStyle}
+      data-sa-font-weight={design?.fontWeight}
+      data-sa-line-height={design?.lineHeight}
+      data-sa-letter-spacing={design?.letterSpacing}
+      data-sa-text-decoration={design?.textDecoration}
+      data-sa-text-transform={design?.textTransform}
+      data-sa-text-align={design?.textAlign}
+      data-sa-white-space={design?.whiteSpace}
+      data-sa-color={design?.color}
     >
       {children}
     </ComponentBox>

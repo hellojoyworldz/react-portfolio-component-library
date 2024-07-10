@@ -31,19 +31,19 @@ export const ComponentTitle = ({
       as={(as = "h2")}
       id={id}
       className={mergedClassName}
-      data-font-family={design?.fontFamily}
-      data-font-size={design?.fontSize || "tit"}
-      data-font-style={design?.fontStyle}
-      data-font-weight={design?.fontWeight}
-      data-line-height={design?.lineHeight}
-      data-letter-spacing={design?.letterSpacing}
-      data-text-decoration={design?.textDecoration}
-      data-text-transform={design?.textTransform}
-      data-text-align={design?.textAlign}
-      data-white-space={design?.whiteSpace}
-      data-color={design?.color}
-      data-opacity={design?.opacity}
-      data-highlightcolor={design?.highlightColor}
+      data-sa-font-family={design?.fontFamily}
+      data-sa-font-size={design?.fontSize || "tit"}
+      data-sa-font-style={design?.fontStyle}
+      data-sa-font-weight={design?.fontWeight}
+      data-sa-line-height={design?.lineHeight}
+      data-sa-letter-spacing={design?.letterSpacing}
+      data-sa-text-decoration={design?.textDecoration}
+      data-sa-text-transform={design?.textTransform}
+      data-sa-text-align={design?.textAlign}
+      data-sa-white-space={design?.whiteSpace}
+      data-sa-color={design?.color}
+      data-sa-opacity={design?.opacity}
+      data-sa-highlightcolor={design?.highlightColor}
     >
       {children}
     </ComponentBox>
