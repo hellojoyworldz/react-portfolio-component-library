@@ -13,7 +13,7 @@ export const ComponentBox = forwardRef(
     ref: React.Ref<any>,
   ) => {
     return (
-      <Component ref={ref} id={id} className={className} {...props}>
+      <Component id={id} className={className} {...props}>
         {children}
       </Component>
     );
