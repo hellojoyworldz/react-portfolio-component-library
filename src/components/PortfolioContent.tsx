@@ -50,7 +50,7 @@ export const PortfolioContent = <T extends ElementType = "main">({
 
     // 가로스크롤
     const horizontalSections = document.querySelectorAll<HTMLElement>(
-      "[data-horizontal-scroll]",
+      "[data-horizontal-scroll]"
     );
 
     horizontalSections.forEach((horizontalSection) => {
