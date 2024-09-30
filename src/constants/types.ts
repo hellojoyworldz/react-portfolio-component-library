@@ -1,19 +1,7 @@
 import { design } from "./design";
 
 export type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-export type TextTag =
-  | "p"
-  | "div"
-  | "span"
-  | "strong"
-  | "em"
-  | "label"
-  | "h1"
-  | "h2"
-  | "h3"
-  | "h4"
-  | "h5"
-  | "h6";
+export type TextTag = "p" | "div" | "span" | "strong" | "em" | "label" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 export type PredefinedFontFamily = keyof typeof design.fontFamily;
 export type PredefinedFontWeight = keyof typeof design.fontWeight;
 export type PredefinedFontSize = keyof typeof design.fontSize;
@@ -27,7 +15,7 @@ export type PredefinedWhiteSpace = keyof typeof design.whiteSpace;
 export type PredefinedColors = keyof typeof design.colors;
 export type PredefinedOpacity = keyof typeof design.opacities;
 
-export interface designTitleType {
+export interface designCommonType {
   fontFamily?: PredefinedFontFamily;
   fontWeight?: PredefinedFontWeight;
   fontSize?: PredefinedFontSize;
@@ -39,39 +27,18 @@ export interface designTitleType {
   textAlign?: PredefinedTextAlign;
   whiteSpace?: PredefinedWhiteSpace;
   color?: PredefinedColors;
+  opacity?: PredefinedOpacity;
+}
+
+export interface designTitleType extends designCommonType {
   highlightColor?: PredefinedColors;
-  opacity?: PredefinedOpacity;
 }
 
-export interface designTextType {
-  fontFamily?: PredefinedFontFamily;
-  fontWeight?: PredefinedFontWeight;
-  fontSize?: PredefinedFontSize;
-  fontStyle?: PredefinedFontStyle;
-  lineHeight?: PredefinedLineHeight;
-  letterSpacing?: PredefinedLetterSpacing;
-  textDecoration?: PredefinedTextDecoration;
-  textTransform?: PredefinedTextTransform;
-  textAlign?: PredefinedTextAlign;
-  whiteSpace?: PredefinedWhiteSpace;
-  color?: PredefinedColors;
-  opacity?: PredefinedOpacity;
-}
+export interface designTextType extends designCommonType {}
 
-export interface designBadgeType {
-  fontFamily?: PredefinedFontFamily;
-  fontWeight?: PredefinedFontWeight;
-  fontSize?: PredefinedFontSize;
-  fontStyle?: PredefinedFontStyle;
-  lineHeight?: PredefinedLineHeight;
-  letterSpacing?: PredefinedLetterSpacing;
-  textDecoration?: PredefinedTextDecoration;
-  textTransform?: PredefinedTextTransform;
-  whiteSpace?: PredefinedWhiteSpace;
-  color?: PredefinedColors;
+export interface designBadgeType extends designCommonType {
   badgeColor?: PredefinedColors;
   borderColor?: PredefinedColors;
   hoverColor?: PredefinedColors;
   hoverBadgeColor?: PredefinedColors;
-  opacity?: PredefinedOpacity;
 }
