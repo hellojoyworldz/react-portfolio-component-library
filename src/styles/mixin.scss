@@ -1,9 +1,11 @@
 @import "./function.scss";
 
-@mixin apply-design-attribute($dataset, $property){
+// design에서 property에 맞는 값 가져와 key와 value로 나눔
+// data-sa-* 속성을 사용하여 선택자 생성하여 스타일 적용
+@mixin apply-design-attribute($dataset, $property) {
   @each $key, $value in design-get($property) {
     &[data-sa-#{$dataset}="#{$key}"] {
-      @if $property == 'fontSize' {
+      @if $property == "fontSize" {
         #{$dataset}: font-size($key, default);
         @media (max-width: $breakPoint) {
           #{$dataset}: font-size($key, breakpoint);
@@ -15,37 +17,40 @@
   }
 }
 
+// 텍스트 스타일 공통 적용
 @mixin design-styles {
-  @include apply-design-attribute('font-family', 'fontFamily');
-  @include apply-design-attribute('font-weight', 'fontWeight');
-  @include apply-design-attribute('font-size', 'fontSize');
-  @include apply-design-attribute('font-style', 'fontStyle');
-  @include apply-design-attribute('line-height', 'lineHeight');
-  @include apply-design-attribute('letter-spacing', 'letterSpacing');
-  @include apply-design-attribute('text-decoration', 'textDecoration');
-  @include apply-design-attribute('text-transform', 'textTransform');
-  @include apply-design-attribute('text-align', 'textAlign');
-  @include apply-design-attribute('white-space', 'whiteSpace');
-  @include apply-design-attribute('color', 'colors');
-  @include apply-design-attribute('background-color', 'colors');
-  @include apply-design-attribute('border-color', 'colors');
-  @include apply-design-attribute('opacity', 'opacities');
+  @include apply-design-attribute("font-family", "fontFamily");
+  @include apply-design-attribute("font-weight", "fontWeight");
+  @include apply-design-attribute("font-size", "fontSize");
+  @include apply-design-attribute("font-style", "fontStyle");
+  @include apply-design-attribute("line-height", "lineHeight");
+  @include apply-design-attribute("letter-spacing", "letterSpacing");
+  @include apply-design-attribute("text-decoration", "textDecoration");
+  @include apply-design-attribute("text-transform", "textTransform");
+  @include apply-design-attribute("text-align", "textAlign");
+  @include apply-design-attribute("white-space", "whiteSpace");
+  @include apply-design-attribute("color", "colors");
+  @include apply-design-attribute("background-color", "colors");
+  @include apply-design-attribute("border-color", "colors");
+  @include apply-design-attribute("opacity", "opacities");
 }
 
-@mixin design-highlight-styles{
+// 하이라이트 컬러 적용
+@mixin design-highlight-styles {
   @each $key, $value in design-get(colors) {
     &[data-sa-highlightcolor="#{$key}"] {
-      & .highlight{
+      & .highlight {
         color: #{$value};
       }
     }
   }
 }
 
-@mixin design-hover-styles{
+// 호버 백그라운드, 컬러 적용
+@mixin design-hover-styles {
   @each $key, $value in design-get(colors) {
     &[data-sa-hoverbadgecolor="#{$key}"] {
-      &:hover{
+      &:hover {
         background-color: #{$value};
       }
     }
@@ -53,8 +58,8 @@
 
   @each $key, $value in design-get(colors) {
     &[data-sa-hovercolor="#{$key}"] {
-      &:hover{
-        color :#{$value};
+      &:hover {
+        color: #{$value};
       }
     }
   }

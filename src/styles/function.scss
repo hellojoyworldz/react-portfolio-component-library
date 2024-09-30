@@ -1,5 +1,6 @@
 @import "design";
 
+// design에서 key에 맞는 값 가져옴
 @function design-get($key, $subkey: null) {
   @if $subkey {
     @return map-get(map-get($design, $key), $subkey);
@@ -8,6 +9,7 @@
   }
 }
 
+// design에서 key에 맞는 value를 가져옴
 @function font-family($key) {
   @return design-get(fontFamily, $key);
 }
