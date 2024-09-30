@@ -1,4 +1,4 @@
-@import 'variable';
+@import "variable";
 
 $design: (
   fontFamily: (
@@ -15,16 +15,40 @@ $design: (
     bold: 700
   ),
   fontSize: (
-    tit: (default: $fontSizLv1, breakpoint: $fontSizLv3),
-    xxl: (default: $fontSizLv2, breakpoint: $fontSizLv3),
-    xl: (default: $fontSizLv3, breakpoint: $fontSizLv4),
-    lg: (default: $fontSizLv4, breakpoint: $fontSizLv5),
-    md: (default: $fontSizLv5, breakpoint: $fontSizLv6),
-    sm: (default: $fontSizLv6, breakpoint: $fontSizLv7),
-    xs: (default: $fontSizLv7, breakpoint: $fontSizLv8),
-    xxs: (default: $fontSizLv8, breakpoint: $fontSizLv9)
+    tit: (
+      default: $fontSizLv1,
+      breakpoint: $fontSizLv3
+    ),
+    xxl: (
+      default: $fontSizLv2,
+      breakpoint: $fontSizLv3
+    ),
+    xl: (
+      default: $fontSizLv3,
+      breakpoint: $fontSizLv4
+    ),
+    lg: (
+      default: $fontSizLv4,
+      breakpoint: $fontSizLv5
+    ),
+    md: (
+      default: $fontSizLv5,
+      breakpoint: $fontSizLv6
+    ),
+    sm: (
+      default: $fontSizLv6,
+      breakpoint: $fontSizLv7
+    ),
+    xs: (
+      default: $fontSizLv7,
+      breakpoint: $fontSizLv8
+    ),
+    xxs: (
+      default: $fontSizLv8,
+      breakpoint: $fontSizLv9
+    )
   ),
-  fontStyle : (
+  fontStyle: (
     normal: normal,
     italic: italic
   ),
@@ -56,7 +80,7 @@ $design: (
     normal: normal,
     nowrap: nowrap,
     preWrap: pre-wrap,
-    breakSpace: break-spaces,
+    breakSpace: break-spaces
   ),
   colors: (
     "purple": $colPoint1,

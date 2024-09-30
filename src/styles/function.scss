@@ -12,12 +12,12 @@
   @return design-get(fontFamily, $key);
 }
 
-@function font-weight($key) {
-  @return design-get(fontWeight, $key);
-}
-
 @function font-size($key, $viewport: default) {
   @return map-get(design-get(fontSize, $key), $viewport);
+}
+
+@function font-weight($key) {
+  @return design-get(fontWeight, $key);
 }
 
 @function font-style($key) {
